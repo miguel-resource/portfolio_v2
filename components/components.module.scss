@@ -1,0 +1,27 @@
+// import a new font
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap');
+$primary-color: #000;
+$primary-font: 'IBM Plex Mono', monospace;
+
+
+// footer
+.footer {
+    @apply flex justify-center items-center w-full h-24 text-sm;
+    font-family: $primary-font;
+    .label {
+        color: red;
+    }
+}
+
+.navbar {
+    @apply w-9/12 mx-auto mt-9 bg-gray-700 rounded-md h-10;
+
+    div {
+        @apply rounded-md p-1 mx-auto w-1/2 flex gap-12 justify-center;
+    }
+}
+
+:export {
+    primaryColor: $primary-color;
+    footer: footer;
+}
