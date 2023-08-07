@@ -3,25 +3,56 @@
 $primary-color: #000;
 $primary-font: 'IBM Plex Mono', monospace;
 
-
-// footer
 .footer {
-    @apply flex justify-center items-center w-full h-24 text-sm;
+    @apply flex justify-center items-center w-full h-24 text-sm flex-col;
     font-family: $primary-font;
     .label {
-        color: red;
+        @apply block;
+        color: #c2c2c2;
     }
+
+    .icons  {
+        @apply flex gap-4 mt-2;
+        ul {
+            @apply flex gap-4;
+            li {
+                transition: all 0.7s ease;
+                @apply hover:scale-90;
+                a {
+                    @apply text-slate-300;
+                    
+                    &:hover {
+                        @apply text-slate-400 scale-x-125;
+                    }
+                }
+            }
+        }
+    }
+
+
 }
 
 .navbar {
-    @apply w-9/12 mx-auto mt-9 bg-gray-700 rounded-md h-10;
+    @apply w-1/2 mx-auto text-sm mt-9 rounded-md h-12 shadow-sm shadow-blue-900 flex gap-0;
+    font-family: $primary-font;
+    .links {
+        @apply rounded-md p-1 mx-auto w-1/2 flex gap-20 justify-center items-center;
 
-    div {
-        @apply rounded-md p-1 mx-auto w-1/2 flex gap-12 justify-center;
+        a {
+            color: #a9a9a9;
+            transition: all 1s ease;
+            @apply relative font-medium;
+            &:after {
+                content: '';
+                @apply absolute -bottom-3 left-0 w-0 h-0.5 bg-slate-300 transition-all duration-300 ease-in;
+            }
+            @apply hover:text-slate-300;
+            @apply hover:after:w-full;
+        }
+    }
+
+    .config {
+        @apply items-center justify-center w-1/5 flex gap-4;
     }
 }
 
-:export {
-    primaryColor: $primary-color;
-    footer: footer;
-}
