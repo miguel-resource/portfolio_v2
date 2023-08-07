@@ -1,0 +1,20 @@
+
+.root {
+    @apply flex flex-col gap-8 min-h-screen;
+    justify-content: center;
+
+    // Content
+    .content {
+        @apply border-2 border-gray-200 rounded-md p-4 min-h-fit flex-1;
+
+
+        .home {
+            @apply items-center flex justify-center;
+
+            &__avatar {
+                @apply bg-red-800;
+            }
+        }
+    }
+
+}

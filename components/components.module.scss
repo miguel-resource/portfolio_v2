@@ -33,7 +33,7 @@ $primary-font: 'IBM Plex Mono', monospace;
 }
 
 .navbar {
-    @apply w-1/2 mx-auto text-sm mt-9 rounded-md h-12 shadow-sm shadow-blue-900 flex gap-0;
+    @apply w-7/12 mx-auto text-sm rounded-md h-16 shadow-sm shadow-blue-900 flex gap-0;
     font-family: $primary-font;
     .links {
         @apply rounded-md p-1 mx-auto w-1/2 flex gap-20 justify-center items-center;
@@ -53,6 +53,17 @@ $primary-font: 'IBM Plex Mono', monospace;
 
     .config {
         @apply items-center justify-center w-1/5 flex gap-4;
+
+        .form {
+            @apply flex flex-row;
+
+            .language {
+                @apply flex flex-row gap-2 items-center;
+                .icon {
+                    @apply text-slate-300;
+                }
+            }
+        }
     }
 }
 
