@@ -1,4 +1,5 @@
 "use client";
+import gsap from "gsap";
 import Link from "next/link";
 import LanguageIcon from "@mui/icons-material/Language";
 import {
@@ -10,6 +11,7 @@ import {
   InputLabel,
 } from "@mui/material";
 import s from "./components.module.scss";
+import { use, useEffect } from "react";
 
 const links = [
   { href: "/", label: "Me" },
@@ -68,6 +70,18 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 export const Navbar = () => {
+
+  useEffect(() => {
+    const links = document.querySelectorAll("p");
+    gsap.from(links, {
+      opacity: 0,
+      duration: 0.8,
+      y: -20,
+      stagger: 0.1,
+      ease: "power3.out",
+    });
+  }, []);
+
   return (
     <nav className={s.navbar}>
       {/* Links para navegar */}
@@ -97,6 +111,7 @@ export const Navbar = () => {
               }}
             >
               <option value="en">English</option>
+              <option value="es">Español</option>
             </NativeSelect>
           </div>
         </FormGroup>

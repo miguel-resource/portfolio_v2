@@ -3,16 +3,34 @@
     @apply flex flex-col gap-8 min-h-screen;
     justify-content: center;
 
-    // Content
     .content {
-        @apply border-2 border-gray-200 rounded-md p-4 min-h-fit flex-1;
-
+        @apply p-4 min-h-fit flex-1;
 
         .home {
             @apply items-center flex justify-center;
 
-            &__avatar {
-                @apply bg-red-800;
+            &__info {
+                @apply flex flex-col;
+
+                &__img {
+                    @apply mx-auto mb-12;
+                }
+
+                h1 {
+                    @apply text-4xl font-bold text-center;
+                }
+
+                h3 {
+                    @apply text-2xl font-bold text-center mb-16;
+                }
+
+                p {
+                    @apply text-center block w-1/2 mx-auto;
+                }
+
+                &__swiper {
+                    @apply mt-16 w-11 mx-auto;
+                }
             }
         }
     }

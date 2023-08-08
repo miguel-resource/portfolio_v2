@@ -12,13 +12,13 @@ const Footer = () => {
       "footer",
       {
         opacity: 0,
-        y: 100,
+        y: -30,
       },
       {
         opacity: 1,
         y: 0,
         duration: 1,
-        ease: "expo.out",
+        ease: "power3.out", 
       }
     );
   
