@@ -7,28 +7,23 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { use, useEffect, useRef } from "react";
+import { Component, use, useEffect, useRef } from "react";
 import SlideHardSkills from "./../components/SlideHardSkills";
 import SlideSoftSkills from "./../components/SlideSoftSkills";
 import { QueryBuilder } from "@mui/icons-material";
-
+import { useTypewriter, Cursor } from "react-simple-typewriter";
+import { type } from "os";
 
 export default function Home() {
   const summaryRef = useRef(null);
 
-  useEffect(() => {
-    // const summaryElement: any = summaryRef.current;
-    // const originalText = summaryElement.textContent;
-    // summaryElement.textContent = "";
-
-    // gsap.to(summaryElement, {
-    //   duration: 1,
-    //   text: {
-    //     value: originalText,
-    //   },
-    //   ease: "power3.out",
-    // });
-  }, []);
+  const professionHead = useTypewriter({
+    words: [
+      "FullStack Developer",
+    ],
+    typeSpeed: 85,
+  });
+  const profession = professionHead[0];
 
   return (
     <div className={s.home}>
@@ -42,7 +37,12 @@ export default function Home() {
           style={{ borderRadius: "100%" }}
         />
         <h1>Miguel Ángel Bermúdez Cruz</h1>
-        <h3>FullStack Developer</h3>
+        <h3>
+          {profession}{" "}
+          <span>
+            <Cursor></Cursor>
+          </span>
+        </h3>
         <p className={s.home__info__description} ref={summaryRef}>
           Experienced Software Engineer with a strong focus on frontend
           development and additional backend capabilities for <b>FullStack</b>{" "}
@@ -56,7 +56,6 @@ export default function Home() {
           <Swiper
             autoplay={{
               delay: 5000,
-
             }}
             className={s.home__info__swiper__container}
             modules={[Pagination]} // add autoplay
@@ -65,7 +64,7 @@ export default function Home() {
               <SlideHardSkills />
             </SwiperSlide>
             <SwiperSlide className={s.home__info__swiper__container__slide}>
-              <SlideSoftSkills/>
+              <SlideSoftSkills />
             </SwiperSlide>
           </Swiper>
         </section>
