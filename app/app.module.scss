@@ -24,12 +24,20 @@
                     @apply text-2xl font-bold text-center mb-16;
                 }
 
-                p {
+                &__description {
                     @apply text-center block w-1/2 mx-auto;
                 }
 
                 &__swiper {
-                    @apply mt-16 w-11 mx-auto;
+                    @apply mt-12 w-1/2 mx-auto h-36;
+
+                    &__container {
+                        @apply h-full;
+                                            
+                        &__slide {
+                            @apply flex flex-col items-center justify-center;
+                        }
+                    }
                 }
             }
         }
