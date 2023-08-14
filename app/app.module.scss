@@ -41,6 +41,48 @@
                 }
             }
         }
+
+        .experience {
+            @apply py-12 mx-auto w-1/2;
+
+            &__container {
+                @apply max-w-5xl mx-auto px-4;
+
+                &__boxes {
+                    @apply flex flex-col gap-12;
+
+                    &__item {
+                        @apply relative flex items-center;
+
+                        &__point {
+                            @apply relative z-10 flex-shrink-0 h-6 w-6 border-2 border-blue-400 rounded-full bg-gray-800;   
+                            @apply text-center text-xs leading-5;
+                        }
+
+                        &__card {
+                            @apply ml-5 bg-gray-800 p-4 rounded-lg shadow-md w-2/5 border-2 border-blue-400 shadow-md;
+
+                            &__title {
+                                @apply text-lg font-semibold text-gray-200;
+                            }
+
+                            p {
+                                @apply text-gray-400 text-sm;
+                            }
+
+                            ul {
+                                @apply mt-2;
+
+                            }
+                        }
+
+                        &__line {
+                            @apply absolute -inset-y-10 left-2.5 w-0.5 bg-blue-900;
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }

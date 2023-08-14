@@ -1,8 +1,71 @@
+'use client';
+import { useEffect } from 'react';
+import s from './../app.module.scss';
+import gsap from 'gsap';
+
 const Experience = () => {
+  const experience = [
+    {
+      company: 'Empresa 1',
+      jobTitle: 'Puesto en Empresa 1',
+      jobDescription: 'Descripción de tu experiencia en la empresa 1.',
+      stack: ['Tecnología 1', 'Tecnología 2']
+    },
+    {
+      company: 'Empresa 2',
+      jobTitle: 'Puesto en Empresa 2',
+      jobDescription: 'Descripción de tu experiencia en la empresa 2.',
+      stack: ['Tecnología 1', 'Tecnología 2']
+    },
+    {
+      company: 'Empresa 3',
+      jobTitle: 'Puesto en Empresa 3',
+      jobDescription: 'Descripción de tu experiencia en la empresa 3.',
+      stack: ['Tecnología 1', 'Tecnología 2']
+    },
+  ];
+
+
+  useEffect(() => {
+    const selectItem = document.querySelectorAll(`.${s.experience__container__boxes__item}`);
+    gsap.fromTo(
+      selectItem,
+      {
+        opacity: 0,
+        y: -100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.2,
+      }
+    );
+  }, []);
+
   return (
-    <div>
-      <h1>Experience</h1>
+    <section className={s.experience}>
+    <div className={s.experience__container}>
+      <div className={s.experience__container__boxes}>
+        {experience.map((item, index) => (
+          <div key={index} className={s.experience__container__boxes__item}>
+            <div className={s.experience__container__boxes__item__point}>{index + 1}</div>
+            <div className={s.experience__container__boxes__item__card}>
+              <h3 className={s.experience__container__boxes__item__card__title}>{item.jobTitle}</h3>
+              <p>{item.jobDescription}</p>
+              <ul>
+                {item.stack.map((tech, index) => (
+                  <li key={index} className="text-gray-600">{tech}</li>
+                ))}
+              </ul>
+            </div>
+            <div className={s.experience__container__boxes__item__line}></div>
+          </div>
+        ))}
+      </div>
     </div>
+  </section>
   );
 };
 
