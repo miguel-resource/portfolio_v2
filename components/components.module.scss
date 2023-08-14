@@ -101,3 +101,36 @@ $primary-font: 'IBM Plex Mono', monospace;
     }
 }
 
+
+.soft__skills {
+
+    ul {
+        @apply flex flex-row mx-auto w-full items-center justify-center gap-16;
+
+        li {
+            @apply justify-center items-center flex flex-row gap-4 duration-150 text-center;
+            @apply h-12;
+        }
+
+        li:hover {
+            @apply scale-125 cursor-default;
+            @apply text-slate-300;
+            animation: rebound 0.3s ease-in-out;
+        }
+    }
+}
+
+@keyframes rebound {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    80% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
