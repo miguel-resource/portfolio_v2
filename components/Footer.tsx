@@ -6,8 +6,25 @@ import { GitHub, LinkedIn, Email } from "@mui/icons-material";
 
 const Footer = () => {
 
-  useEffect(() => {
+  const socialLinks = [
+    {
+      name: "GitHub",
+      link: "",
+      icon: <GitHub />,
+    },
+    {
+      name: "LinkedIn",
+      link: "https://www.linkedin.com/in/miguel-ángel-bermúdez-cruz-797395192/",
+      icon: <LinkedIn />,
+    },
+    {
+      name: "Email",
+      link: "mailto:miguelbercru27@gmail.com",
+      icon: <Email />,
+    }
+  ];
 
+  useEffect(() => {
     let ctx = gsap.fromTo(
       "footer",
       {
@@ -27,27 +44,19 @@ const Footer = () => {
   return (
     <footer
       className={s.footer}>
-      <p className={s.label}>
+      <p className="block text-slate-800 dark:text-slate-300">
         © 2023 Miguel Ángel Bermúdez Cruz
       </p>
       {/* Icons */}
       <div className={s.icons}>
         <ul>
-          <li>
-            <a href="" target="_blank">
-              <GitHub />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/miguel-ángel-bermúdez-cruz-797395192/" target="_blank">
-              <LinkedIn />
-            </a>
-          </li>
-          <li>
-            <a href="mailto:miguelbercru27@gmail.com" target="_blank">
-              <Email />
-            </a>
-          </li>
+          {socialLinks.map((link, index) => (
+            <li key={index} className="hover:scale-90 hover:opacity-75 duration-100 ease-in-out">
+              <a href={link.link} target="_blank" className="text-slate-800 ease-in-out dark:text-slate-300 hover:scale-x-95">
+                {link.icon}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </footer>

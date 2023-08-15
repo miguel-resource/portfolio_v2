@@ -1,10 +1,8 @@
 
-.root {
-    @apply flex flex-col gap-8 min-h-screen;
-    justify-content: center;
+
 
     .content {
-        @apply p-4 min-h-fit flex-1;
+        @apply p-4 min-h-fit flex-1 items-center justify-center flex;
 
         .home {
             @apply items-center flex justify-center;
@@ -96,9 +94,22 @@
             }
         }
 
-        .contact {
-            @apply text-center;
+        .resume {
+            @apply flex items-center justify-center;
+
+            &__container {
+                @apply  mx-auto  flex justify-center items-center;
+
+                &__button {
+                    @apply border border-blue-400 rounded-lg shadow-md text-gray-200 font-medium mx-auto;
+                    @apply flex items-center justify-center px-4 py-2;
+                    transition: all 0.2s ease-in;
+                }
+
+                &__button:hover {
+                    @apply border-2 scale-105;
+                }
+            }
         }
     }
 
-}

@@ -20,9 +20,10 @@ const SlideSoftSkills = () => {
     <div className={s.soft__skills}>
       <ul>
         {listSoftSkills.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index} className='text-slate-800 dark:text-slate-300 hover:text-slate-600'>
+            {item}
+          </li>
         ))}
-      
       </ul>
     </div>
   );

@@ -6,7 +6,7 @@ import {
   faPython,
   faAws,
 } from "@fortawesome/free-brands-svg-icons";
-import { faDatabase } from "@fortawesome/free-solid-svg-icons";
+import { faDatabase, faTerminal } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
 import { useEffect } from "react";
 import s from "./components.module.scss";
@@ -39,6 +39,11 @@ const SlideHardSkills = () => {
       icon: faDatabase,
       details: "PostgreSQL, MySQL, Firebase",
     },
+    {
+      name: "Bash/Zsh",
+      icon: faTerminal,
+      details: "Git, Docker, Nginx, Linux",
+    }
   ];
 
   const BootstrapTooltip = styled(({ className, ...props }: TooltipProps) => (
@@ -97,7 +102,7 @@ const SlideHardSkills = () => {
           return (
             <li key={index}>
               <BootstrapTooltip title={item.details} placement="top">
-                <div>
+                <div className="text-slate-800 dark:text-slate-300">
                   <FontAwesomeIcon icon={item.icon} className={s.icon} />
                   <p className={s.name}>{item.name}</p>
                 </div>

@@ -11,18 +11,19 @@ import {
   InputLabel,
 } from "@mui/material";
 import s from "./components.module.scss";
-import { use, useEffect } from "react";
+import { use, useEffect, useState } from "react";
 
 const links = [
   { href: "/", label: "Me" },
-  { href: "/perfil", label: "Profile" },
   { href: "/experience", label: "Experience" },
+  { href: "/resume", label: "Resume" },
 ];
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
   padding: 7,
+  
 
   "& .MuiSwitch-switchBase": {
     margin: 1,
@@ -44,7 +45,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
   },
   "& .MuiSwitch-thumb": {
-    backgroundColor: theme.palette.mode === "dark" ? "#003892" : "#001e3c",
+    backgroundColor: localStorage.getItem("theme") === "dark" ? "#003892" : "#475569",
     width: 32,
     height: 32,
     "&:before": {
@@ -69,9 +70,16 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 export const Navbar = () => {
+  const [state, setState] = useState(localStorage.getItem("theme") === "dark" ? true : false);
 
   useEffect(() => {
     const links = document.querySelectorAll("p");
+    const dark = localStorage.getItem("theme") === "dark" ? true : false;
+    if (dark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
     gsap.from(links, {
       opacity: 0,
       duration: 0.8,
@@ -81,13 +89,29 @@ export const Navbar = () => {
     });
   }, []);
 
+  const switchHandler = () => {
+    if (localStorage.getItem("theme") === "dark" || !localStorage.getItem("theme")) {
+      localStorage.setItem("theme", "light");
+      document.documentElement.classList.remove("dark");
+      console.log("light");
+    } else {
+      console.log("dark");
+      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.add("dark");
+    }
+    setState(!state);
+  };
+
   return (
-    <nav className={s.navbar}>
+    <nav className="w-7/12 mx-auto text-sm rounded-md h-16 shadow-sm shadow-blue-900 flex gap-0 ">
       {/* Links para navegar */}
       <div className={s.links}>
         {links.map(({ href, label }) => (
-          <Link href={href} key={`${href}${label}`}>
-            <p>{label}</p>
+          <Link href={href} key={`${href}${label}`} className="text-gray-800 dark:text-gray-300">
+            <p
+              className="text-gray-800 font-medium dark:text-gray-300">
+              {label}
+              </p>
           </Link>
         ))}
       </div>
@@ -95,7 +119,11 @@ export const Navbar = () => {
       <div className={s.config}>
         <FormGroup className={s.form}>
           <FormControlLabel
-            control={<MaterialUISwitch defaultChecked />}
+            control={<MaterialUISwitch 
+              onChange={switchHandler} 
+              checked={state}
+              />
+            }
             label=""
           />
           <div className={s.language}>

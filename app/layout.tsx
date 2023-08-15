@@ -4,6 +4,7 @@ import s from "./app.module.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Footer from "@/components/Footer";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={inter.className}>
-        <div className={s.root}>
+        <div className="flex flex-col gap-8 min-h-screen bg-gray-300 justify-center dark:bg-black">
           <Navbar />
           <section className={s.content}>{children}</section>
           <Footer />

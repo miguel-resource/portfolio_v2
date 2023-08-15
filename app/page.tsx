@@ -3,16 +3,17 @@ import Image from "next/image";
 import s from "./app.module.scss";
 import gsap from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Component, use, useEffect, useRef } from "react";
+import { useRef } from "react";
 import SlideHardSkills from "./../components/SlideHardSkills";
 import SlideSoftSkills from "./../components/SlideSoftSkills";
 import { QueryBuilder } from "@mui/icons-material";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { type } from "os";
+import OperativeSystems from "@/components/OperativeSystems";
 
 export default function Home() {
   const summaryRef = useRef(null);
@@ -37,7 +38,7 @@ export default function Home() {
           style={{ borderRadius: "100%" }}
         />
         <h1>Miguel Ángel Bermúdez Cruz</h1>
-        <h3>
+        <h3 className="text-slate-800 dark:text-blue-900">
           {profession}{" "}
           <span>
             <Cursor></Cursor>
@@ -56,9 +57,13 @@ export default function Home() {
           <Swiper
             autoplay={{
               delay: 5000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
             }}
             className={s.home__info__swiper__container}
-            modules={[Pagination]} // add autoplay
+            modules={[Pagination, Autoplay]} // add autoplay
           >
             <SwiperSlide className={s.home__info__swiper__container__slide}>
               <SlideHardSkills />
