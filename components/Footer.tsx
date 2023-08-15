@@ -2,7 +2,7 @@
 import gsap from "gsap";
 import { useEffect } from "react";
 import  s  from './components.module.scss';
-import { GitHub, LinkedIn } from "@mui/icons-material";
+import { GitHub, LinkedIn, Email } from "@mui/icons-material";
 
 const Footer = () => {
 
@@ -41,6 +41,11 @@ const Footer = () => {
           <li>
             <a href="https://www.linkedin.com/in/miguel-ángel-bermúdez-cruz-797395192/" target="_blank">
               <LinkedIn />
+            </a>
+          </li>
+          <li>
+            <a href="mailto:miguelbercru27@gmail.com" target="_blank">
+              <Email />
             </a>
           </li>
         </ul>

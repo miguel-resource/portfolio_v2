@@ -17,7 +17,6 @@ const links = [
   { href: "/", label: "Me" },
   { href: "/perfil", label: "Profile" },
   { href: "/experience", label: "Experience" },
-  { href: "/contact", label: "Contact" },
 ];
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({

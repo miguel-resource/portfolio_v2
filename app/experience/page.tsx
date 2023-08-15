@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import s from './../app.module.scss';
 import gsap from 'gsap';
 
@@ -44,23 +44,26 @@ const Experience = () => {
     );
   }, []);
 
+
   return (
     <section className={s.experience}>
     <div className={s.experience__container}>
       <div className={s.experience__container__boxes}>
         {experience.map((item, index) => (
-          <div key={index} className={s.experience__container__boxes__item}>
+          <div key={index} className={s.experience__container__boxes__item} >
             <div className={s.experience__container__boxes__item__point}>{index + 1}</div>
             <div className={s.experience__container__boxes__item__card}>
               <h3 className={s.experience__container__boxes__item__card__title}>{item.jobTitle}</h3>
               <p>{item.jobDescription}</p>
-              <ul>
-                {item.stack.map((tech, index) => (
-                  <li key={index} className="text-gray-600">{tech}</li>
-                ))}
-              </ul>
             </div>
             <div className={s.experience__container__boxes__item__line}></div>
+            <div className={s.experience__container__boxes__item__stack}>
+              {item.stack.map((item, index) => (
+                <div key={index} >
+                  {item}
+                  </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>

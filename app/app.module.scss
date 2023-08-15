@@ -76,12 +76,28 @@
                             }
                         }
 
+                        &__stack {
+                            @apply space-x-52;
+                        }
+
                         &__line {
                             @apply absolute -inset-y-10 left-2.5 w-0.5 bg-blue-900;
                         }
                     }
+
+                    &__item:hover {
+
+
+                        &__stack {
+                            @apply block;
+                        }
+                    }
                 }
             }
+        }
+
+        .contact {
+            @apply text-center;
         }
     }
 
