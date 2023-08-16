@@ -1,3 +1,4 @@
+"use client"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Tooltip, TooltipProps, styled, tooltipClasses } from "@mui/material";
 import {

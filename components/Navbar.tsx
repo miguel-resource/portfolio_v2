@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import s from "./components.module.scss";
 import { use, useEffect, useState } from "react";
+import { useLocale } from "next-intl";
 
 const links = [
   { href: "/", label: "Me" },
@@ -23,7 +24,6 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
   padding: 7,
-  
 
   "& .MuiSwitch-switchBase": {
     margin: 1,

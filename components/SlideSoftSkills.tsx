@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from 'react';
 import s from './components.module.scss';
 
@@ -14,7 +15,6 @@ const SlideSoftSkills = () => {
   useEffect(() => {
     console.log('SlideSoftSkills');
   }, []);
-
 
   return (
     <div className={s.soft__skills}>

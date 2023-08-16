@@ -1,10 +1,11 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import {IntlProvider} from 'next-intl';
+
 
 function App({ Component, pageProps }: any) {
   return (
-    <ChakraProvider>
+    <IntlProvider locale="es" >
       <Component {...pageProps} />
-    </ChakraProvider>
+    </IntlProvider>
   );
 }
 
