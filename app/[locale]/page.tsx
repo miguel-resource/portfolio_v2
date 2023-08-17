@@ -6,7 +6,16 @@ import { useTranslations } from "next-intl";
 
 export default function Home() {
 
-  const t = useTranslations("home");
+  const translationHome = useTranslations("home");
+  const translationSwiper = useTranslations("swiper");
+  const translationSwiperObject = {
+    'initiative': translationSwiper('initiative'),
+    'adaptability': translationSwiper('adaptability'),
+    'creativity': translationSwiper('creativity'),
+    'communication': translationSwiper('communication'),
+    'teamwork': translationSwiper('teamwork'),
+  };
+
 
   return (
     <div className={s.home}>
@@ -22,10 +31,10 @@ export default function Home() {
         <h1>Miguel Ángel Bermúdez Cruz</h1>
         <Title/>
         <p className={s.home__info__description} >
-          {t('summary')}
+          {translationHome('summary')}
         </p>
         <section className={s.home__info__swiper}>
-          <SwiperComponent/>
+          <SwiperComponent translationSwiper={translationSwiperObject} />
         </section>
       </div>
     </div>

@@ -7,8 +7,20 @@ import SlideHardSkills from "./SlideHardSkills";
 import SlideSoftSkills from "./SlideSoftSkills";
 import { Autoplay, Pagination } from "swiper/modules";
 import s from "./components.module.scss";
+import { useEffect } from "react";
 
-const SwiperComponent = () => {
+type Props = {
+  translationSwiper: any;
+};
+
+const SwiperComponent = (props: Props) => {
+  const { translationSwiper } = props;
+
+  useEffect(() => {
+    console.log(translationSwiper);
+  }
+  , []);
+
   return (
     <Swiper
       autoplay={{
@@ -25,7 +37,7 @@ const SwiperComponent = () => {
         <SlideHardSkills />
       </SwiperSlide>
       <SwiperSlide className={s.home__info__swiper__container__slide}>
-        <SlideSoftSkills />
+        <SlideSoftSkills  translationSoftSkills={translationSwiper}/>
       </SwiperSlide>
     </Swiper>
   );

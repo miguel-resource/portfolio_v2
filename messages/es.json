@@ -1,5 +1,21 @@
 {
     "home": {
-        "summary": "Experienced Software Engineer with a strong focus on frontend development and additional backend capabilities for FullStack work. Proficient in Windows, macOS, and Linux operating systems. Enthusiastic about learning and collaborating within diverse teams. Currently, expanding skills in mobile apps and augmented reality, while maintaining excellence in web development."
+        "summary": "Ingeniero de Software con experiencia, enfocado en gran medida en el desarrollo de frontend y con capacidades adicionales en el backend para trabajos FullStack. Competente en sistemas operativos Windows, macOS y Linux. Entusiasta por aprender y colaborar en equipos diversos. Actualmente, ampliando habilidades en aplicaciones móviles y realidad aumentada, mientras mantengo la excelencia en el desarrollo web."
+    },
+    "navbar": {
+        "me": "Yo",
+        "experience": "Experiencia",
+        "resume": "Currículum"
+    },
+    "swiper": {
+        "communication": "Comunicación",
+        "initiative": "Iniciativa",
+        "adaptability": "Adaptabilidad",
+        "teamwork": "Trabajo en equipo",
+        "creativity": "Creatividad",
+        "criticalThinking": "Pensamiento crítico"
+    },
+    "resume": {
+        "download": "Descargar Currículum"
     }
 }

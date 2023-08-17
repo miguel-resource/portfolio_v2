@@ -1,27 +1,26 @@
-"use client";
 import { useEffect } from 'react';
 import s from './components.module.scss';
+import { useTranslations } from 'next-intl';
 
+type Props = {
+  translationSoftSkills: any;
+};
 
-const SlideSoftSkills = () => {
-  const listSoftSkills = [
-    'Comunicación',
-    'Iniciativa',
-    'Adaptabilidad',
-    'Pensamiento crítico',
-    'Creatividad'
-  ];
+const SlideSoftSkills = (props: Props) => {
+  const { translationSoftSkills } = props;
+  const listSoftSkills = translationSoftSkills;
 
   useEffect(() => {
-    console.log('SlideSoftSkills');
+    console.log(translationSoftSkills);
   }, []);
 
   return (
     <div className={s.soft__skills}>
       <ul>
-        {listSoftSkills.map((item, index) => (
-          <li key={index} className='text-slate-800 dark:text-slate-300 hover:text-slate-600'>
-            {item}
+        {/* renderiza considerando que es un objeto */}
+        {Object.keys(listSoftSkills).map((key) => (
+          <li key={key}>
+            <p className={s.details}>{listSoftSkills[key]}</p>
           </li>
         ))}
       </ul>

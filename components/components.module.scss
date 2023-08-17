@@ -7,48 +7,49 @@ $primary-font: 'IBM Plex Mono', monospace;
     @apply flex justify-center items-center w-full h-24 text-sm flex-col;
     font-family: $primary-font;
 
-    .icons  {
+    .icons {
         @apply flex gap-4 mt-2;
+
         ul {
             @apply flex gap-4;
-           
+
         }
     }
-
-
 }
 
+.links {
+    @apply rounded-md p-1 mx-auto w-1/2 flex gap-20 justify-center items-center;
 
-    .links {
-        @apply rounded-md p-1 mx-auto w-1/2 flex gap-20 justify-center items-center;
+    a {
+        color: #a9a9a9;
+        transition: all 1s ease;
+        @apply relative font-medium;
 
-        a {
-            color: #a9a9a9;
-            transition: all 1s ease;
-            @apply relative font-medium;
-            &:after {
-                content: '';
-                @apply absolute -bottom-3 left-0 w-0 h-0.5 bg-slate-700 transition-all duration-300 ease-in;
+        &:after {
+            content: '';
+            @apply absolute -bottom-3 left-0 w-0 h-0.5 bg-slate-700 transition-all duration-300 ease-in;
+        }
+
+        @apply hover:text-slate-300;
+        @apply hover:after:w-full;
+    }
+}
+
+.config {
+    @apply items-center justify-center w-1/5 flex gap-4;
+
+    .form {
+        @apply flex flex-row;
+
+        .language {
+            @apply flex flex-row gap-2 items-center;
+
+            .icon {
+                @apply text-slate-300;
             }
-            @apply hover:text-slate-300;
-            @apply hover:after:w-full;
         }
     }
-
-    .config {
-        @apply items-center justify-center w-1/5 flex gap-4;
-
-        .form {
-            @apply flex flex-row;
-
-            .language {
-                @apply flex flex-row gap-2 items-center;
-                .icon {
-                    @apply text-slate-300;
-                }
-            }
-        }
-    }
+}
 
 
 .hard__skills {
@@ -66,7 +67,7 @@ $primary-font: 'IBM Plex Mono', monospace;
 
             .name {
                 @apply text-center text-xs hidden;
-            }   
+            }
         }
 
         li:hover {
@@ -75,7 +76,7 @@ $primary-font: 'IBM Plex Mono', monospace;
             .icon {
                 @apply duration-150 ease-out -translate-y-1;
             }
-            
+
             .name {
                 @apply duration-150 ease-out block;
             }
@@ -107,12 +108,15 @@ $primary-font: 'IBM Plex Mono', monospace;
     0% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
+
     80% {
         transform: translateY(-12px);
     }
+
     100% {
         transform: translateY(0);
     }

@@ -8,16 +8,17 @@ import {
   Switch,
   styled,
   NativeSelect,
-  InputLabel,
+  SelectChangeEvent,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import s from "./components.module.scss";
 import { use, useEffect, useState } from "react";
-import { useLocale } from "next-intl";
 
 const links = [
-  { href: "/", label: "Me" },
-  { href: "/experience", label: "Experience" },
-  { href: "/resume", label: "Resume" },
+  { href: "/", label: "me" },
+  { href: "/experience", label: "experience" },
+  { href: "/resume", label: "resume" },
 ];
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -69,8 +70,16 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-export const Navbar = () => {
+type Props = {
+  me : string
+  experience : string
+  resume : string
+}
+
+export const Navbar = (props: Props) => {
   const [state, setState] = useState(localStorage.getItem("theme") === "dark" ? true : false);
+  const [locale, setLocale] = useState(localStorage.getItem("locale") || "en");
+  const { me } = props;
 
   useEffect(() => {
     const links = document.querySelectorAll("p");
@@ -102,15 +111,24 @@ export const Navbar = () => {
     setState(!state);
   };
 
+  const selectHandler = (event: SelectChangeEvent) => {
+    console.log(event.target.value);
+    setLocale(event.target.value);
+    localStorage.setItem("locale", event.target.value);
+    const url = window.location.href;
+    const urlSplit = url.split("/");
+    window.location.href = `${urlSplit[0]}//${urlSplit[2]}/${event.target.value}`;
+  }
+
   return (
     <nav className="w-7/12 mx-auto text-sm rounded-md h-16 shadow-sm shadow-blue-900 flex gap-0 ">
       {/* Links para navegar */}
       <div className={s.links}>
-        {links.map(({ href, label }) => (
+        {links.map(({ href, label }: { href: string; label: string }) => (
           <Link href={href} key={`${href}${label}`} className="text-gray-800 dark:text-gray-300">
             <p
               className="text-gray-800 font-medium dark:text-gray-300">
-              {label}
+              {props[label]}
               </p>
           </Link>
         ))}
@@ -128,18 +146,16 @@ export const Navbar = () => {
           />
           <div className={s.language}>
             <LanguageIcon className={s.icon} />
-            <NativeSelect
-              defaultValue="en"
+            <Select
+              variant="standard"
+              value={locale}
               className={s.select}
               style={{ color: "#fff" }}
-              inputProps={{
-                name: "language",
-                id: "uncontrolled-native",
-              }}
+              onChange={selectHandler}
             >
-              <option value="en">English</option>
-              <option value="es">Español</option>
-            </NativeSelect>
+              <MenuItem value="en">English</MenuItem>
+              <MenuItem value="es">Español</MenuItem>
+            </Select>
           </div>
         </FormGroup>
       </div>
