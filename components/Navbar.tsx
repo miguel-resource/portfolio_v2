@@ -133,7 +133,6 @@ export const Navbar = (props: Props) => {
           </Link>
         ))}
       </div>
-      {/* Boton de configuracion */}
       <div className={s.config}>
         <FormGroup className={s.form}>
           <FormControlLabel
@@ -148,9 +147,10 @@ export const Navbar = (props: Props) => {
             <LanguageIcon className={s.icon} />
             <Select
               variant="standard"
+              color="primary"
               value={locale}
-              className={s.select}
-              style={{ color: "#fff" }}
+              className="text-slate-800 dark:text-slate-400 dark:font-semibold"
+              style={{fontFamily: "IBM Plex Mono", fontSize: "0.75rem", fontWeight: 500}}
               onChange={selectHandler}
             >
               <MenuItem value="en">English</MenuItem>

@@ -43,6 +43,7 @@ $primary-font: 'IBM Plex Mono', monospace;
 
         .language {
             @apply flex flex-row gap-2 items-center;
+            color: red;
 
             .icon {
                 @apply text-slate-300;
