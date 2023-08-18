@@ -25,7 +25,7 @@ const SwiperComponent = (props: Props) => {
     <Swiper
       autoplay={{
         delay: 5000,
-        disableOnInteraction: false,
+        disableOnInteraction: true,
       }}
       pagination={{
         clickable: true,

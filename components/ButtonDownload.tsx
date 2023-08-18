@@ -41,7 +41,9 @@ const ButtonDownload = (props: Props) => {
         className={`${s.resume__container__button} opacity-0 dark:text-slate-300 dark:bg-slate-900`}
         onClick={handleDownload}
       >
-        {download} <DowloadIcon />
+        {download} <DowloadIcon 
+          className={`${s.resume__container__button__icon} dark:text-slate-300`}
+        />
       </button>
     </div>
   );

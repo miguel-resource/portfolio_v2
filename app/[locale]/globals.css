@@ -26,7 +26,7 @@ body {
     rgb(var(--background-start-rgb));
 
     .swiper {
-      height: 7rem !important;
+      height: 7.5rem !important;
     }
 
   .swiper-button-prev, .swiper-button-next {

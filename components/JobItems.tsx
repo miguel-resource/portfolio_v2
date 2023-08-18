@@ -49,9 +49,9 @@ const JobItems = (props: Props) => {
       }
     },
     {
-      title: "Fullstack Developer",
+      title: 'Freelance Developer',
       jobDescription: translateExperience.description3,
-      img: "freelances",
+      img: "freelance",
       stack: {
         "angular": ["Material", "SASS", "Bootstrap", "Typescript"],
         "firebase": ["Firestore", "Authentication", "Storage"],
@@ -70,6 +70,12 @@ const JobItems = (props: Props) => {
     const selectItem = document.querySelectorAll(
       `.${s.experience__container__boxes__item}`
     );
+    const selectTitle = document.querySelectorAll(
+      `.${s.experience__container__boxes__item__card__header__title}`
+    );
+    const selectButton = document.querySelectorAll(
+      `.${s.experience__container__boxes__item__card__header__button}`
+    );
     gsap.fromTo(
       selectItem,
       {
@@ -81,6 +87,30 @@ const JobItems = (props: Props) => {
         y: 0,
         duration: 0.8,
         ease: "power3.out",
+        stagger: 0.2,
+      }
+    );
+    gsap.fromTo(
+      selectTitle,
+      {
+        scale: 0,
+      },
+      {
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.2,
+      }
+    );
+    gsap.fromTo(
+      selectButton,
+      {
+        scale: 0,
+      },
+      {
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.inOut",
         stagger: 0.2,
       }
     );
@@ -101,7 +131,7 @@ const JobItems = (props: Props) => {
                 {item.title}
               </h3>
               <button
-                className="text-slate-400 hover:text-slate-600 duration-750 ease-in-out"
+                className={`${s.experience__container__boxes__item__card__header__button} text-slate-400 hover:text-slate-600 duration-750 ease-in-out`}
                 onClick={() => toggleInfo(index)}
               >
                 <HelpIcon/>

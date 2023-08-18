@@ -13,7 +13,8 @@ import {
   MenuItem,
 } from "@mui/material";
 import s from "./components.module.scss";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { link } from "fs";
 
 const links = [
   { href: "/", label: "me" },
@@ -98,12 +99,23 @@ export const Navbar = (props: Props) => {
     });
   }, []);
 
+  useEffect(() => {
+    localStorage.getItem("locale") === "es" ? setLocale("es") : setLocale("en");
+    const url = window.location.href;
+    const urlSplit = url.split("/");
+    if (urlSplit[3] === "es") {
+      setLocale("es");
+    } else {
+      setLocale("en");
+    }
+  }, []);
+
+
   const switchHandler = () => {
     if (localStorage.getItem("theme") === "dark" || !localStorage.getItem("theme")) {
       localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
     } else {
-      
       localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
     }
@@ -115,12 +127,23 @@ export const Navbar = (props: Props) => {
     localStorage.setItem("locale", event.target.value);
     const url = window.location.href;
     const urlSplit = url.split("/");
-    window.location.href = `${urlSplit[0]}//${urlSplit[2]}/${event.target.value}`;
+
+    if (urlSplit[3] === "es" && event.target.value === "en" || event.target.value === "es" ) {
+
+      if (urlSplit[4] !== undefined) {
+        window.location.href = `${urlSplit[0]}//${urlSplit[2]}/${event.target.value}/${urlSplit[4]}`;
+      } else {
+        if (urlSplit[3] === "es") {
+          window.location.href = `${urlSplit[0]}//${urlSplit[2]}/${event.target.value}`;
+        } else {
+          window.location.href = `${urlSplit[0]}//${urlSplit[2]}/${event.target.value}/${urlSplit[3]}`;
+        }
+      }
+    }
   }
 
   return (
     <nav className="w-7/12 mx-auto text-sm rounded-md h-16 shadow-sm shadow-blue-900 flex gap-0 z-10">
-      {/* Links para navegar */}
       <div className={s.links}>
         {links.map(({ href, label }: { href: string; label: string }) => (
           <Link href={href} key={`${href}${label}`} className="text-gray-800 dark:text-gray-300">

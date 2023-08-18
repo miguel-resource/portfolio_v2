@@ -4,7 +4,7 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 const Title = () => {
   const professionHead = useTypewriter({
     words: ["FullStack Developer"],
-    typeSpeed: 85,
+    typeSpeed: 60,
   });
   const profession = professionHead[0];
   return (

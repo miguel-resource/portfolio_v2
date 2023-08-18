@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Tooltip, TooltipProps, styled, tooltipClasses } from "@mui/material";
 import {
@@ -44,7 +44,7 @@ const SlideHardSkills = () => {
       name: "Bash/Zsh",
       icon: faTerminal,
       details: "Git, Docker, Nginx, Linux",
-    }
+    },
   ];
 
   const BootstrapTooltip = styled(({ className, ...props }: TooltipProps) => (
@@ -74,25 +74,24 @@ const SlideHardSkills = () => {
       {
         opacity: 1,
         y: 0,
-        duration: 1,
+        duration: 0.5,
         ease: "power3.out",
         stagger: 0.2,
       }
     );
     gsap.fromTo(
-        itemP,
-        {
-            opacity: 0,
-        },
-        {
-            opacity: 1,
-            y: 0,
-            display: "block",
-            duration: 1,
-            ease: "power3.out",
-            stagger: 0.2,
-        }
-        );
+      itemP,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.2,
+      }
+    );
   }, []);
 
   return (
@@ -101,12 +100,14 @@ const SlideHardSkills = () => {
         {listHardSkills.map((item, index) => {
           return (
             <li key={index}>
-              <BootstrapTooltip title={item.details} placement="top">
-                <div className="text-slate-800 dark:text-slate-300">
-                  <FontAwesomeIcon icon={item.icon} className={s.icon} />
-                  <p className={s.name}>{item.name}</p>
-                </div>
-              </BootstrapTooltip>
+              {/* <BootstrapTooltip title={item.name} placement="bottom"> */}
+                <BootstrapTooltip title={item.details} placement="top">
+                  <div className="text-slate-800 dark:text-slate-300">
+                    <FontAwesomeIcon icon={item.icon} className={s.icon} />
+                    <p className={s.name}>{item.name}</p>
+                  </div>
+                </BootstrapTooltip>
+              {/* </BootstrapTooltip> */}
             </li>
           );
         })}

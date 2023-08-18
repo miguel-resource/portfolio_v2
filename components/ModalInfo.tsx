@@ -1,16 +1,9 @@
 "use client";
 import { Modal } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import s from "./../app/[locale]/app.module.scss";
-import {
-  faAngular,
-  faAws,
-  faPython,
-  faReact,
-} from "@fortawesome/free-brands-svg-icons";
-import { faA, faTerminal } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import s from "./../app/[locale]/app.module.scss";
+import { useEffect } from "react";
 
 type Props = {
   activeStackIndex: number;
@@ -22,20 +15,16 @@ type Props = {
 const ModalInfo = (props: Props) => {
   const { activeStackIndex, index, setActiveStackIndex, item } = props;
 
-  const stacksIcons = {
-    react: faReact,
-    angular: faAngular,
-    aws: faAws,
-    python: faPython,
-    terminal: faTerminal,
-  };
-
   const toggleInfo = (index: number) => {
     if (activeStackIndex === index) {
       return setActiveStackIndex(-1);
     }
     setActiveStackIndex(index);
   };
+
+  useEffect(() => {
+    console.log("index", index);
+  }, [index]);
 
   return (
     <Modal open={activeStackIndex === index} onClose={() => toggleInfo(index)}>
@@ -50,6 +39,11 @@ const ModalInfo = (props: Props) => {
             <section
                 className="flex p-4 flex-col gap-4 items-start justify-between"
                 >
+              <h2
+                className="text-2xl font-bold text-slate-800 dark:text-slate-500 font-primary-font underline w-full"
+                >
+                {item.title}
+              </h2>
               <h3 className="text-sm w-11/12 font-medium mb-2 text-slate-600 dark:text-slate-300">
                 {item.jobDescription}
               </h3>

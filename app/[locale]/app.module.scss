@@ -105,11 +105,18 @@
 
             &__container {
                 @apply  mx-auto  flex justify-center items-center;
-        
+
                 &__button {
                     @apply items-center justify-center rounded-lg w-full p-3 text-slate-500 font-semibold ease-in-out transition-all duration-300 border-2 border-slate-500;
-                    @apply hover:opacity-75 hover:scale-75 ;
                     font-family: 'IBM Plex Mono', monospace;
+                }
+
+                &__button:hover {
+                    @apply underline shadow-inherit;
+
+                    &__icon {
+                        animation: alternate 0.5s ease-in-out infinite;
+                    }
                 }
 
             }
