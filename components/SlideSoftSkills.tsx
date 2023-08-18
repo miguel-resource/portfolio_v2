@@ -10,10 +10,6 @@ const SlideSoftSkills = (props: Props) => {
   const { translationSoftSkills } = props;
   const listSoftSkills = translationSoftSkills;
 
-  useEffect(() => {
-    console.log(translationSoftSkills);
-  }, []);
-
   return (
     <div className={s.soft__skills}>
       <ul>

@@ -54,7 +54,7 @@ const ModalInfo = (props: Props) => {
                       {key}:
                     </span>
                     {item.stack[key].map((item: any, index: number) => (
-                      <p>{item}</p>
+                      <p key={key}>{item}</p>
                     ))}
                   </li>
                 ))}

@@ -16,16 +16,11 @@ type Props = {
 const SwiperComponent = (props: Props) => {
   const { translationSwiper } = props;
 
-  useEffect(() => {
-    console.log(translationSwiper);
-  }
-  , []);
-
   return (
     <Swiper
       autoplay={{
         delay: 5000,
-        disableOnInteraction: true,
+        disableOnInteraction: true
       }}
       pagination={{
         clickable: true,

@@ -29,10 +29,6 @@ export default function RootLayout({
 
   return (
     <html lang={locale} className="dark">
-      <head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js"></script>
-      </head>
       <body className={inter.className}>
       <ParticlesBackground />
         <div className="flex flex-col gap-8 min-h-screen bg-gray-300 justify-center dark:bg-black">

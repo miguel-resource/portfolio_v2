@@ -30,8 +30,6 @@ const HeaderHome = (props: Props) => {
             y: 100,
             ease: "power3.out",
         });
-        
-        console.log(translationSwiperObject);
     }, []);
 
   return (

@@ -148,8 +148,9 @@ export const Navbar = (props: Props) => {
         {links.map(({ href, label }: { href: string; label: string }) => (
           <Link href={href} key={`${href}${label}`} className="text-gray-800 dark:text-gray-300">
             <p
-              className="text-gray-800 font-medium dark:text-gray-300">
-              {props[label]}
+              className="text-gray-800 font-medium dark:text-gray-300 capitalize"
+              >
+              { label === "me" ? me : label }
               </p>
           </Link>
         ))}
