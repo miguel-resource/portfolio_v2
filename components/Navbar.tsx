@@ -102,9 +102,8 @@ export const Navbar = (props: Props) => {
     if (localStorage.getItem("theme") === "dark" || !localStorage.getItem("theme")) {
       localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
-      console.log("light");
     } else {
-      console.log("dark");
+      
       localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
     }
@@ -112,7 +111,6 @@ export const Navbar = (props: Props) => {
   };
 
   const selectHandler = (event: SelectChangeEvent) => {
-    console.log(event.target.value);
     setLocale(event.target.value);
     localStorage.setItem("locale", event.target.value);
     const url = window.location.href;
@@ -121,7 +119,7 @@ export const Navbar = (props: Props) => {
   }
 
   return (
-    <nav className="w-7/12 mx-auto text-sm rounded-md h-16 shadow-sm shadow-blue-900 flex gap-0 ">
+    <nav className="w-7/12 mx-auto text-sm rounded-md h-16 shadow-sm shadow-blue-900 flex gap-0 z-10">
       {/* Links para navegar */}
       <div className={s.links}>
         {links.map(({ href, label }: { href: string; label: string }) => (
@@ -144,7 +142,7 @@ export const Navbar = (props: Props) => {
             label=""
           />
           <div className={s.language}>
-            <LanguageIcon className={s.icon} />
+            <LanguageIcon className="text-slate-800 dark:text-slate-300" />
             <Select
               variant="standard"
               color="primary"

@@ -17,9 +17,10 @@ const SlideSoftSkills = (props: Props) => {
   return (
     <div className={s.soft__skills}>
       <ul>
-        {/* renderiza considerando que es un objeto */}
         {Object.keys(listSoftSkills).map((key) => (
-          <li key={key}>
+          <li key={key}
+            className='font-mono text-sm font-semibold text-slate-800 dark:text-blue-100'
+          >
             <p className={s.details}>{listSoftSkills[key]}</p>
           </li>
         ))}

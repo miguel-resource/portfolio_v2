@@ -79,7 +79,7 @@ const JobItems = (props: Props) => {
       {
         opacity: 1,
         y: 0,
-        duration: 1,
+        duration: 0.8,
         ease: "power3.out",
         stagger: 0.2,
       }
@@ -87,27 +87,29 @@ const JobItems = (props: Props) => {
   }, []);
 
   return (
-    <div className={s.experience__container__boxes}>
+    <div className={`${s.experience__container__boxes}`}>
       {experience.map((item, index) => (
-        <div key={index} className={s.experience__container__boxes__item}>
+        <div key={index} className={`${s.experience__container__boxes__item}`}>
           <div className={s.experience__container__boxes__item__point}>
             {index + 1}
           </div>
           <div
-            className={`${s.experience__container__boxes__item__card} bg-slate-300 border-blue-950 dark:bg-slate-800 dark:border-blue-400 `}
+            className={`${s.experience__container__boxes__item__card} shadow-xl bg-slate-300 border-blue-950 dark:bg-slate-900 dark:border-blue-400 `}
           >
             <div className={s.experience__container__boxes__item__card__header}>
-              <h3 className={s.experience__container__boxes__item__card__header__title}>
+              <h3 className={`${s.experience__container__boxes__item__card__header__title} text-slate-800 dark:text-slate-300 `}>
                 {item.title}
               </h3>
               <button
-                className={s.experience__container__boxes__item__card__btn}
+                className="text-slate-400 hover:text-slate-600 duration-750 ease-in-out"
                 onClick={() => toggleInfo(index)}
               >
                 <HelpIcon/>
               </button>
             </div>
-            <p>
+            <p
+              className="text-slate-800 dark:text-slate-300"
+              >
               {
                 item.jobDescription.length > 100 ?
                 item.jobDescription.substring(0, 250) + "..."

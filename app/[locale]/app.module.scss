@@ -20,14 +20,16 @@
 
                 h3 {
                     @apply text-2xl font-bold text-center mb-16;
+                    font-family: 'IBM Plex Mono', monospace;
                 }
 
                 &__description {
                     @apply text-center block w-1/2 mx-auto;
+                    // font-family: monospace;
                 }
 
                 &__swiper {
-                    @apply mt-12 w-1/2 mx-auto h-36;
+                    @apply mt-12 w-1/2 mx-auto h-full;
 
                     &__container {
                         @apply h-full;
@@ -64,12 +66,12 @@
                                 @apply flex items-center justify-between mb-2;
 
                                 &__title {
-                                    @apply text-lg font-semibold text-gray-200;
+                                    @apply text-lg font-semibold;
                                 }
                             }
 
                             p {
-                                @apply text-gray-400 text-sm;
+                                @apply  text-sm;
                             }
 
                             ul {
@@ -103,16 +105,13 @@
 
             &__container {
                 @apply  mx-auto  flex justify-center items-center;
-
+        
                 &__button {
-                    @apply border border-blue-400 rounded-lg shadow-md text-gray-200 font-medium mx-auto;
-                    @apply flex items-center justify-center px-4 py-2;
-                    transition: all 0.2s ease-in;
+                    @apply items-center justify-center rounded-lg w-full p-3 text-slate-500 font-semibold ease-in-out transition-all duration-300 border-2 border-slate-500;
+                    @apply hover:opacity-75 hover:scale-75 ;
+                    font-family: 'IBM Plex Mono', monospace;
                 }
 
-                &__button:hover {
-                    @apply border-2 scale-105;
-                }
             }
         }
     }

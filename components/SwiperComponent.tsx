@@ -29,7 +29,9 @@ const SwiperComponent = (props: Props) => {
       }}
       pagination={{
         clickable: true,
+        dynamicBullets: true,
       }}
+      style={{ width: "100%", height: "100%" }}
       className={s.home__info__swiper__container}
       modules={[Pagination, Autoplay]} // add autoplay
     >

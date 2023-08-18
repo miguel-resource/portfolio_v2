@@ -65,7 +65,6 @@ const SlideHardSkills = () => {
   useEffect(() => {
     let itemHardSkill = document.querySelectorAll(`.${s.hard__skills} li`);
     let itemP = document.querySelectorAll(`.${s.hard__skills} ${s.name}`);
-
     gsap.fromTo(
       itemHardSkill,
       {

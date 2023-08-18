@@ -4,8 +4,9 @@ import s from "./app.module.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Footer from "@/components/Footer";
-import { useLocale, useTranslations } from 'next-intl';
-import {notFound} from 'next/navigation';
+import { useLocale, useTranslations } from "next-intl";
+import { notFound } from "next/navigation";
+import ParticlesBackground from "@/components/ParticlesBackground";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,26 +16,30 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
-  params: any
+  params: any;
 }) {
-
   const locale = useLocale();
 
   if (params.locale !== locale) {
     notFound();
-  } 
+  }
 
   return (
     <html lang={locale} className="dark">
+      <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js"></script>
+      </head>
       <body className={inter.className}>
+      <ParticlesBackground />
         <div className="flex flex-col gap-8 min-h-screen bg-gray-300 justify-center dark:bg-black">
-          <Navbar 
-          me={useTranslations("navbar")("me")}
-          experience={useTranslations("navbar")("experience")}
-          resume={useTranslations("navbar")("resume")}
+          <Navbar
+            me={useTranslations("navbar")("me")}
+            experience={useTranslations("navbar")("experience")}
+            resume={useTranslations("navbar")("resume")}
           />
           <section className={s.content}>{children}</section>
           <Footer />

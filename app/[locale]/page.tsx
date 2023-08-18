@@ -30,7 +30,7 @@ export default function Home() {
         />
         <h1>Miguel Ángel Bermúdez Cruz</h1>
         <Title/>
-        <p className={s.home__info__description} >
+        <p className={`${s.home__info__description} text-slate-800 dark:text-slate-300`} >
           {translationHome('summary')}
         </p>
         <section className={s.home__info__swiper}>

@@ -8,7 +8,7 @@ const Title = () => {
   });
   const profession = professionHead[0];
   return (
-    <h3 className="text-slate-800 dark:text-blue-900">
+    <h3 className="text-slate-800 dark:text-blue-700">
       {profession}{" "}
       <span>
         <Cursor></Cursor>

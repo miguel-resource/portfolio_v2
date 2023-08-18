@@ -45,9 +45,7 @@ $primary-font: 'IBM Plex Mono', monospace;
             @apply flex flex-row gap-2 items-center;
             color: red;
 
-            .icon {
-                @apply text-slate-300;
-            }
+        
         }
     }
 }
@@ -89,9 +87,10 @@ $primary-font: 'IBM Plex Mono', monospace;
 
 
 .soft__skills {
+    @apply flex flex-col items-center justify-center w-full h-full;
 
     ul {
-        @apply flex flex-row mx-auto w-full items-center justify-center gap-16;
+        @apply flex flex-row mx-auto w-full items-center justify-center gap-16 h-full;
 
         li {
             @apply justify-center items-center flex flex-row gap-4 duration-150 text-center;

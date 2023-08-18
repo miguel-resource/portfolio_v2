@@ -1,7 +1,8 @@
 "use client";
-import { Button } from "@mui/material";
 import DowloadIcon from "@mui/icons-material/Download";
 import s from "./../app/[locale]/app.module.scss";
+import { useEffect } from "react";
+import gsap from "gsap";
 
 type Props = {
   download: string;
@@ -20,16 +21,28 @@ const ButtonDownload = (props: Props) => {
 
     document;
   };
+
+  useEffect(() => {
+    const selectButton = document.querySelectorAll(
+      `.${s.resume__container__button}`
+    );
+    gsap.to(selectButton, {
+      opacity: 1,
+      duration: 0.2,  
+      y: -20,
+      stagger: 0.1,
+      ease: "power3.inOut",
+      })
+  } ,[]);
+
   return (
     <div className={s.resume__container}>
-      <Button
-        className={s.resume__container__button}
+      <button
+        className={`${s.resume__container__button} opacity-0 dark:text-slate-300 dark:bg-slate-900`}
         onClick={handleDownload}
-        size="large"
-        variant="outlined"
       >
         {download} <DowloadIcon />
-      </Button>
+      </button>
     </div>
   );
 };
