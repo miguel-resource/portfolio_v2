@@ -45,7 +45,7 @@ const Footer = () => {
     <footer
       className={s.footer}>
       <p className="block text-slate-800 dark:text-slate-300">
-        © 2023 Miguel Ángel Bermúdez Cruz
+        © 2023 Miguel Bermúdez 
       </p>
       {/* Icons */}
       <div className={s.icons}>

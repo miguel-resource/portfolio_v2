@@ -58,10 +58,14 @@
                         }
 
                         &__card {
-                            @apply ml-5 bg-gray-800 p-4 rounded-lg shadow-md w-2/5 border-2 border-blue-400 shadow-md;
+                            @apply ml-5 p-4 rounded-lg shadow-md w-4/5 border-2 shadow-md;
 
-                            &__title {
-                                @apply text-lg font-semibold text-gray-200;
+                            &__header {
+                                @apply flex items-center justify-between mb-2;
+
+                                &__title {
+                                    @apply text-lg font-semibold text-gray-200;
+                                }
                             }
 
                             p {

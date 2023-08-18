@@ -17,5 +17,12 @@
     },
     "resume": {
         "download": "Download Resume"
+    },
+    "experience": {
+        "title": "Experience",
+        "subtitle": "Work Experience",
+        "description1" : "At Ezaudita Startup, I specialized in backend development, focusing on Lambda functions and EC2 instance configuration within AWS. I used CloudWatch for bug diagnosis, ensuring optimal system performance. I integrated Stripe for secure payments and improved the subscription section for enhanced customer satisfaction. I actively contributed to the development team using the Scrum methodology, delivering successful items.",
+        "description2" : "Designing user-friendly layouts for new features. I collaborated with the backend team to communicate with the server and display relevant information to clients. I implemented functionalities for easy access to and management of provider and service data. I actively tested and troubleshooted to ensure a smooth user experience.",
+        "description3" : "During my freelance work, I specialized in creating designs using Figma and translating them into code. I initiated and completed personal and family projects, honing my skills in Git version control, managing branches, CSS, and leveraging various tricks with Tailwind CSS. My tasks involved layout design, API integration, and responsive web development."
     }
 }
