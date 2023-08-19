@@ -2,7 +2,7 @@ import s from './../app.module.scss';
 import JobItems from '../../../components/JobItems';
 import { useTranslations } from 'next-intl';
 
-const Experience = () => {
+export default function Experience() {
 
   const t = useTranslations('experience');
   const translateExperience = {
@@ -21,4 +21,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+// export default Experience;
