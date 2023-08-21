@@ -22,19 +22,16 @@ const ModalInfo = (props: Props) => {
     setActiveStackIndex(index);
   };
 
-  useEffect(() => {
-    console.log("index", index);
-  }, [index]);
-
   return (
-    <Modal open={activeStackIndex === index} onClose={() => toggleInfo(index)}>
+    <Modal open={activeStackIndex === index} onClose={() => toggleInfo(index)} className="flex justify-center items-center">
       <AnimatePresence>
         {activeStackIndex === index && (
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, y: -100 }}
-            className="grid grid-cols-2 w-1/2 absolute top-1/4 left-1/4 bg-slate-300 dark:bg-slate-800  rounded-md focus:outline-none  justify-center"
+            className="grid grid-cols-2 w-11/12 mx-auto bg-slate-300 dark:bg-slate-800  rounded-md focus:outline-none justify-center
+            2xl:w-5/12 xl:w-1/2 lg:w-7/12 md:w-8/12 sm:w-10/12"
           >
             <section
                 className="flex p-4 flex-col gap-4 items-start justify-between"
@@ -44,9 +41,11 @@ const ModalInfo = (props: Props) => {
                 >
                 {item.title}
               </h2>
-              <h3 className="text-sm w-11/12 font-medium mb-2 text-slate-600 dark:text-slate-300">
+              <p 
+                className="text-sm w-11/12 font-medium mb-2 text-slate-600 dark:text-slate-300
+                lg:text-sm md:text-xs">
                 {item.jobDescription}
-              </h3>
+              </p>
               <ul className="text-slate-800 dark:text-slate-300 ">
                 {Object.keys(item.stack).map((key, index) => (
                   <li key={index} className="flex items-center gap-1 text-xs">

@@ -148,7 +148,7 @@ const JobItems = (props: Props) => {
               }
             </p>
           </div>
-          <ModalInfo 
+          <ModalInfo
             activeStackIndex={activeStackIndex}
             index={index}
             setActiveStackIndex={setActiveStackIndex}
