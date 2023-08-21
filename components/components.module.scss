@@ -20,7 +20,6 @@ $primary-font: 'IBM Plex Mono', monospace;
     @apply px-3 mx-auto text-sm rounded-sm h-16 shadow-sm shadow-blue-900 flex gap-0 z-10;
     @apply xl:w-8/12 md:w-10/12 sm:w-full;
 
-
     &__links {
         @apply rounded-md mx-auto w-1/2 flex gap-20 justify-center items-center;
         @apply xl:gap-20 lg:gap-14 md:gap-8 sm:gap-10;
@@ -65,16 +64,19 @@ $primary-font: 'IBM Plex Mono', monospace;
 
     ul {
         @apply flex flex-row mx-auto w-full items-center justify-center gap-20;
+        // @apply lg:gap-14 md:gap-10;
 
         li {
             @apply justify-center items-center flex flex-col gap-4 duration-150 transform opacity-0 ease-out;
 
             .icon {
                 @apply text-center w-12 h-12;
+                // @apply lg:w-8 md:w-6;
             }
 
             .name {
                 @apply text-center text-xs mt-1;
+                // @apply md:hidden;
                 font-family: $primary-font;
             }
         }
@@ -98,6 +100,7 @@ $primary-font: 'IBM Plex Mono', monospace;
 
     ul {
         @apply flex flex-row mx-auto w-full items-center justify-center gap-16 h-full;
+        // @apply lg:gap-14 md:gap-10 sm:gap-8 xl:w-8/12 md:w-10/12 sm:w-full;
 
         li {
             @apply justify-center items-center flex flex-row gap-4 duration-150 text-center;

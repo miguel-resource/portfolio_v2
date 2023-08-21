@@ -18,15 +18,21 @@ const SwiperComponent = (props: Props) => {
 
   return (
     <Swiper
+      spaceBetween={90}
       autoplay={{
         delay: 5000,
         disableOnInteraction: true
+      }}
+      breakpoints={{
+        1600: {
+          spaceBetween: 90,
+        }
       }}
       pagination={{
         clickable: true,
         dynamicBullets: true,
       }}
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "90%", margin: "0 auto" }}
       className={s.home__info__swiper__container}
       modules={[Pagination, Autoplay]} // add autoplay
     >

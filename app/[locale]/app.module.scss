@@ -1,125 +1,125 @@
+.content {
+    @apply min-h-fit flex-1 items-center justify-center flex;
 
+    .home {
+        @apply items-center flex justify-center;
 
+        &__info {
+            @apply flex flex-col;
 
-    .content {
-        @apply p-4 min-h-fit flex-1 items-center justify-center flex;
-
-        .home {
-            @apply items-center flex justify-center;
-
-            &__info {
-                @apply flex flex-col;
-
-                &__img {
-                    @apply mx-auto mb-12;
-                }
-
-                h1 {
-                    @apply text-4xl font-bold text-center;
-                }
-
-                h3 {
-                    @apply text-2xl font-bold text-center mb-16;
-                    font-family: 'IBM Plex Mono', monospace;
-                }
-
-                &__description {
-                    @apply text-center block w-1/2 mx-auto;
-                    // font-family: monospace;
-                }
-
-                &__swiper {
-                    @apply mt-12 w-1/2 mx-auto h-full;
-
-                    &__container {
-                        @apply h-full;
-                                            
-                        &__slide {
-                            @apply flex flex-col items-center justify-center;
-                        }
-                    }
-                }
+            &__title {
+                @apply font-bold text-center;
+                @apply xl:text-4xl sm:text-3xl;
             }
-        }
 
-        .experience {
-            @apply py-12 mx-auto w-1/2;
-
-            &__container {
-                @apply max-w-5xl mx-auto px-4;
-
-                &__boxes {
-                    @apply flex flex-col gap-12;
-
-                    &__item {
-                        @apply relative flex items-center;
-
-                        &__point {
-                            @apply relative z-10 flex-shrink-0 h-6 w-6 border-2 border-blue-400 rounded-full bg-gray-800;   
-                            @apply text-center text-xs leading-5;
-                        }
-
-                        &__card {
-                            @apply ml-5 p-4 rounded-lg shadow-md w-4/5 border-2 shadow-md;
-
-                            &__header {
-                                @apply flex items-center justify-between mb-2;
-
-                                &__title {
-                                    @apply text-lg font-semibold;
-                                }
-                            }
-
-                            p {
-                                @apply  text-sm;
-                            }
-
-                            ul {
-                                @apply mt-2;
-
-                            }
-                        }
-
-                        &__stack {
-                            @apply space-x-52;
-                        }
-
-                        &__line {
-                            @apply absolute -inset-y-10 left-2.5 w-0.5 bg-blue-900;
-                        }
-                    }
-
-                    &__item:hover {
-
-
-                        &__stack {
-                            @apply block;
-                        }
-                    }
-                }
+            &__img {
+                @apply mx-auto mb-12;
             }
-        }
 
-        .resume {
-            @apply flex items-center justify-center;
+            &__profession {
+                @apply text-2xl font-bold text-center mb-16;
+                @apply xl:text-3xl sm:text-xl;
+                font-family: 'IBM Plex Mono', monospace;
+            }
 
-            &__container {
-                @apply  mx-auto  flex justify-center items-center;
+            &__description {
+                @apply text-center block w-1/2 mx-auto;
+                @apply lg:text-base md:text-sm sm:text-xs lg:w-1/2 md:w-5/12;
+                // font-family: monospace;
+            }
 
-                &__button {
-                    @apply items-center justify-center rounded-lg w-full p-3 text-slate-500 font-semibold ease-in-out transition-all duration-300 border-2 border-slate-500;
-                    font-family: 'IBM Plex Mono', monospace;
-                }
+            &__swiper {
+                @apply mt-12 w-1/2 mx-auto h-full;
+                // @apply 2xl:w-1/2 lg:w-5/12 md:w-3/12 sm:w-2/12;
 
-                &__button:hover {
-                    @apply underline shadow-inherit;
+                &__container {
+                    @apply h-full;
 
-                    &__icon {
-                        animation: alternate 0.5s ease-in-out infinite;
+                    &__slide {
+                        @apply flex flex-col items-center justify-center;
                     }
                 }
-
             }
         }
     }
 
+    .experience {
+        @apply py-12 mx-auto w-1/2;
+
+        &__container {
+            @apply max-w-5xl mx-auto px-4;
+
+            &__boxes {
+                @apply flex flex-col gap-12;
+
+                &__item {
+                    @apply relative flex items-center;
+
+                    &__point {
+                        @apply relative z-10 flex-shrink-0 h-6 w-6 border-2 border-blue-400 rounded-full bg-gray-800;
+                        @apply text-center text-xs leading-5;
+                    }
+
+                    &__card {
+                        @apply ml-5 p-4 rounded-lg shadow-md w-4/5 border-2 shadow-md;
+
+                        &__header {
+                            @apply flex items-center justify-between mb-2;
+
+                            &__title {
+                                @apply text-lg font-semibold;
+                            }
+                        }
+
+                        p {
+                            @apply text-sm;
+                        }
+
+                        ul {
+                            @apply mt-2;
+
+                        }
+                    }
+
+                    &__stack {
+                        @apply space-x-52;
+                    }
+
+                    &__line {
+                        @apply absolute -inset-y-10 left-2.5 w-0.5 bg-blue-900;
+                    }
+                }
+
+                &__item:hover {
+
+
+                    &__stack {
+                        @apply block;
+                    }
+                }
+            }
+        }
+    }
+
+    .resume {
+        @apply flex items-center justify-center;
+
+        &__container {
+            @apply mx-auto flex justify-center items-center;
+
+            &__button {
+                @apply items-center justify-center rounded-lg w-full p-3 text-slate-500 font-semibold ease-in-out transition-all duration-300 border-2 border-slate-500;
+                font-family: 'IBM Plex Mono', monospace;
+            }
+
+            &__button:hover {
+                @apply underline shadow-inherit;
+
+                &__icon {
+                    animation: alternate 0.5s ease-in-out infinite;
+                }
+            }
+
+        }
+    }
+}

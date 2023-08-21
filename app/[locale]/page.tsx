@@ -1,9 +1,5 @@
-import Image from "next/image";
 import s from "./app.module.scss";
-import SwiperComponent from '../../components/SwiperComponent';
-import Title from './../../components/Title';
 import { useTranslations } from "next-intl";
-import ModelThree from '../../components/ModelThree';
 import HeaderHome from '../../components/HeaderHome';
 
 export default function Home() {
@@ -21,7 +17,6 @@ export default function Home() {
 
   return (
     <div className={s.home}>
-
       <HeaderHome 
         summary={translationHome('summary')}
         translationSwiperObject={translationSwiperObject}
