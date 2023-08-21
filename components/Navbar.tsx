@@ -71,7 +71,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-type Props = {
+interface Props {
   me : string
   experience : string
   resume : string
@@ -80,7 +80,7 @@ type Props = {
 export const Navbar = (props: Props) => {
   const [state, setState] = useState(localStorage.getItem("theme") === "dark" ? true : false);
   const [locale, setLocale] = useState(localStorage.getItem("locale") || "en");
-  const { me } = props;
+  const prop: keyof Props = "me" || "experience" || "resume";
 
   useEffect(() => {
     const links = document.querySelectorAll("p");
@@ -150,7 +150,7 @@ export const Navbar = (props: Props) => {
             <p
               className="text-gray-800 font-medium dark:text-gray-300 capitalize"
               >
-              { label === "me" ? me : label }
+              { label === "me" ? props.me : label === "experience" ? props.experience : props.resume }
               </p>
           </Link>
         ))}
