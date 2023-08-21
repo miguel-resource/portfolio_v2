@@ -143,8 +143,8 @@ export const Navbar = (props: Props) => {
   }
 
   return (
-    <nav className="w-7/12 mx-auto text-sm rounded-md h-16 shadow-sm shadow-blue-900 flex gap-0 z-10">
-      <div className={s.links}>
+    <nav className={s.navbar}>
+      <div className={s.navbar__links}>
         {links.map(({ href, label }: { href: string; label: string }) => (
           <Link href={href} key={`${href}${label}`} className="text-gray-800 dark:text-gray-300">
             <p
@@ -155,7 +155,7 @@ export const Navbar = (props: Props) => {
           </Link>
         ))}
       </div>
-      <div className={s.config}>
+      <div className={s.navbar__config}>
         <FormGroup className={s.form}>
           <FormControlLabel
             control={<MaterialUISwitch 
