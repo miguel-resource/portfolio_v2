@@ -11,7 +11,6 @@ export default function Experience() {
     'description3': t('description3'),
   };
 
-
   return (
     <section className={s.experience}>
     <div className={s.experience__container}>

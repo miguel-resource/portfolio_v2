@@ -45,6 +45,7 @@
 
     .experience {
         @apply py-12 mx-auto w-1/2;
+        @apply xl:w-1/2 lg:w-8/12 md:w-10/12 sm:w-11/12;
 
         &__container {
             @apply max-w-5xl mx-auto px-4;
@@ -73,6 +74,7 @@
 
                         p {
                             @apply text-sm;
+                            @apply lg:text-sm md:text-xs sm:text-xs;
                         }
 
                         ul {
