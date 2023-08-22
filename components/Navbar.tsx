@@ -7,14 +7,12 @@ import {
   FormControlLabel,
   Switch,
   styled,
-  NativeSelect,
   SelectChangeEvent,
   Select,
   MenuItem,
 } from "@mui/material";
 import s from "./components.module.scss";
 import { useEffect, useState } from "react";
-import { link } from "fs";
 
 const links = [
   { href: "/", label: "me" },
@@ -100,6 +98,13 @@ export const Navbar = (props: Props) => {
   }, []);
 
   useEffect(() => {
+    if (localStorage.getItem("theme") === "dark") {
+      setState(true);
+      localStorage.setItem("theme", "dark");
+    } else {
+      setState(false);
+      localStorage.setItem("theme", "light");
+    }
     localStorage.getItem("locale") === "es" ? setLocale("es") : setLocale("en");
     const url = window.location.href;
     const urlSplit = url.split("/");
