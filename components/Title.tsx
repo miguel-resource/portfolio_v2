@@ -10,6 +10,7 @@ const Title = () => {
   const profession = professionHead[0];
   return (
     <h3
+      style={{ fontFamily: 'IBM Plex Mono' }}
       className={`${s.home__info__profession} text-slate-800 dark:text-blue-700`}>
       {profession}{" "}
       <span>

@@ -1,13 +1,17 @@
-'use client'
+"use client"
 import { useEffect } from "react";
 import s from "./../app/[locale]/app.module.scss";
 import ModelThree from "./ModelThree";
 import SwiperComponent from './SwiperComponent';
 import Title from './Title';
 import gsap from "gsap";
+import { Navbar } from "./Navbar";
 
 type Props = {
     summary : string;
+    me: string;
+    experience: string;
+    resume: string;
     translationSwiperObject: any;
 };
 
@@ -34,7 +38,6 @@ const HeaderHome = (props: Props) => {
 
   return (
     <div className={s.home__info}>
-      {/* <ModelThree/> */}
       <h1
         className={`${s.home__info__title} text-slate-500 dark:text-slate-300`}
       >
@@ -46,9 +49,11 @@ const HeaderHome = (props: Props) => {
       >
         {summary}
       </p>
-      <section className={s.home__info__swiper}>
+      <Navbar me={props.me} experience={props.experience} resume={props.resume} />
+      
+      {/* <section className={s.home__info__swiper}>
         <SwiperComponent translationSwiper={translationSwiperObject} />
-      </section>
+      </section> */}
     </div>
   );
 };

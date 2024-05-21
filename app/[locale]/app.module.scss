@@ -1,45 +1,80 @@
 .content {
-    @apply min-h-fit flex-1 items-center justify-center flex;
+    @apply min-h-fit max-h-full flex-1 items-center justify-center flex;
 
     .home {
-        @apply items-center flex justify-center;
+        @apply  grid grid-cols-2 gap-4 w-full px-44;
 
         &__info {
-            @apply flex flex-col;
+            // @apply flex flex-col px-10;
 
             &__title {
-                @apply font-bold text-center;
+                @apply font-bold text-left;
                 @apply xl:text-4xl sm:text-3xl;
             }
 
-            &__img {
-                @apply mx-auto mb-12;
-            }
-
             &__profession {
-                @apply text-2xl font-bold text-center mb-16;
-                @apply xl:text-3xl sm:text-xl;
-                font-family: 'IBM Plex Mono', monospace;
+                // @apply text-2xl font-semibold text-left mb-6;
+                // font-family: 'IBM Plex Mono', monospace;
             }
 
-            &__description {
-                @apply text-center block w-1/2 mx-auto;
-                @apply lg:text-base md:text-sm sm:text-xs lg:w-1/2 md:w-5/12;
+            &__navbar {
+                @apply flex flex-col w-full mt-32;
+
+
+                &__link {
+                    // @apply text-slate-900;
+                    @apply flex items-center w-full cursor-pointer;
+
+
+                  p {
+                    @apply items-center justify-start;
+                    font-family: 'IBM Plex Mono', monospace;
+                    font-size: 1rem;
+                    display: flex !important;
+
+                    span {
+                        @apply  mr-4;
+                        height: 1px;
+                        width: 3rem;
+                        display: inline-block;
+                        // font-size: 0.8rem;
+                        // background-color: ;
+                        @apply duration-300 ease-out;
+                
+                    }
+
+                  }
+
+                }
+
+                &__link:hover {
+                    p {
+                        span {
+                            width: 4.9rem;
+                        }
+                    }
+                }
+               
+            }
+
+            p {
+                @apply text-left block w-10/12 mt-10;
+                @apply font-medium;
                 // font-family: monospace;
             }
 
-            &__swiper {
-                @apply mt-12 w-1/2 mx-auto h-full;
-                // @apply 2xl:w-1/2 lg:w-5/12 md:w-3/12 sm:w-2/12;
+            // &__swiper {
+            //     @apply mt-12 w-1/2 mx-auto h-full;
+            //     // @apply 2xl:w-1/2 lg:w-5/12 md:w-3/12 sm:w-2/12;
 
-                &__container {
-                    @apply h-full;
+            //     &__container {
+            //         @apply h-full;
 
-                    &__slide {
-                        @apply flex flex-col items-center justify-center;
-                    }
-                }
-            }
+            //         &__slide {
+            //             @apply flex flex-col items-center justify-center;
+            //         }
+            //     }
+            // }
         }
     }
 

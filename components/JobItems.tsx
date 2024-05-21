@@ -7,7 +7,11 @@ import { Box, Modal } from "@mui/material";
 import ModalInfo from "./ModalInfo";
 
 type Props = {
-  translateExperience: any;
+  title: string;
+  subtitle: string;
+  description1: string;
+  description2: string;
+  description3: string;
 };
 
 const style = {
@@ -22,13 +26,13 @@ const style = {
 
 
 const JobItems = (props: Props) => {
-  const { translateExperience } = props;
+  const { title, subtitle, description1, description2, description3 } = props;
   const [activeStackIndex, setActiveStackIndex] = useState(-1);
   const experience = [
     {
       title: "Ezaudita Startup",
       position: "FullStack Developer",
-      jobDescription: translateExperience.description1,
+      jobDescription: description1,
       img: "ezaudita",
       stack: {
         "react": ["ReactJS", "Sass", "TailwindCSS", "AntDesign", "Typescript"],
@@ -40,7 +44,7 @@ const JobItems = (props: Props) => {
     {
       title: "Yastas Gentera",
       position: "Frontend Developer",
-      jobDescription: translateExperience.description2,
+      jobDescription: description2,
       img: "yastas",
       stack: {
         "angular": ["Material", "SASS", "Bootstrap", "Typescript"],
@@ -50,7 +54,7 @@ const JobItems = (props: Props) => {
     },
     {
       title: 'Freelance Developer',
-      jobDescription: translateExperience.description3,
+      jobDescription: description3,
       img: "freelance",
       stack: {
         "angular": ["Material", "SASS", "Bootstrap", "Typescript"],

@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/Navbar";
+import { Header } from "@/components/Header";
 import "./globals.css";
 import s from "./app.module.scss";
 import type { Metadata } from "next";
@@ -11,7 +11,7 @@ import ParticlesBackground from "@/components/ParticlesBackground";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Miguel Ángel Bermúdez Cruz",
+  title: "Miguel Bermúdez",
 };
 
 export default function RootLayout({
@@ -32,7 +32,7 @@ export default function RootLayout({
       <body className={inter.className}>
       <ParticlesBackground />
         <div className="flex flex-col gap-8 min-h-screen bg-gray-300 justify-center dark:bg-black">
-          <Navbar
+          <Header
             me={useTranslations("navbar")("me")}
             experience={useTranslations("navbar")("experience")}
             resume={useTranslations("navbar")("resume")}

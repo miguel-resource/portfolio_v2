@@ -17,31 +17,13 @@ $primary-font: 'IBM Plex Mono', monospace;
 }
 
 .navbar {
-    @apply px-3 mx-auto text-sm rounded-sm h-16 shadow-sm shadow-blue-900 flex gap-0 z-10;
-    @apply xl:w-8/12 md:w-10/12 sm:w-full;
+    @apply mx-auto text-sm rounded-sm h-16 flex gap-0 z-10 px-10;
+    @apply xl:w-full md:w-10/12 sm:w-full;
 
-    &__links {
-        @apply rounded-md mx-auto w-1/2 flex gap-20 justify-center items-center;
-        @apply xl:gap-20 lg:gap-14 md:gap-8 sm:gap-10;
-
-        a {
-            color: #a9a9a9;
-            transition: all 1s ease;
-            @apply relative font-medium;
-
-            &:after {
-                content: '';
-                @apply absolute -bottom-3 left-0 w-0 h-0.5 bg-slate-700 transition-all duration-300 ease-in;
-            }
-
-            @apply hover:text-slate-300;
-            @apply hover:after:w-full;
-        }
-    }
 
     &__config {
-        @apply items-center justify-center w-3/12 flex gap-2;
-        @apply md:w-5/12 sm:w-1/2;
+        @apply w-3/12 flex gap-2;
+
 
         .form {
             @apply flex flex-row;
