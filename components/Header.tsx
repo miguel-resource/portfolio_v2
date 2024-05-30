@@ -155,17 +155,6 @@ export const Header = (props: Props) => {
 
   return (
     <nav className={s.navbar}>
-      {/* <div className={s.navbar__links}>
-        {links.map(({ href, label }: { href: string; label: string }) => (
-          <Link href={href} key={`${href}${label}`} className="text-gray-800 dark:text-gray-300">
-            <p
-              className="text-gray-800 font-medium dark:text-gray-300 capitalize"
-              >
-              { label === "me" ? props.me : label === "experience" ? props.experience : props.resume }
-              </p>
-          </Link>
-        ))}
-      </div> */}
       <div className={s.navbar__config}>
         <FormGroup className={s.form}>
           <FormControlLabel

@@ -38,7 +38,7 @@ export default function RootLayout({
             resume={useTranslations("navbar")("resume")}
           />
           <section className={s.content}>{children}</section>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </body>
     </html>

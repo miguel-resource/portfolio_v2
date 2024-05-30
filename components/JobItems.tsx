@@ -121,7 +121,7 @@ const JobItems = (props: Props) => {
   }, []);
 
   return (
-    <div className={`${s.experience__container__boxes}`}>
+    <div className={`${s.experience__container__boxes}`} id="experience" >
       {experience.map((item, index) => (
         <div key={index} className={`${s.experience__container__boxes__item}`}>
           <div className={s.experience__container__boxes__item__point}>

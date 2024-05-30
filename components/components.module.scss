@@ -19,7 +19,7 @@ $primary-font: 'IBM Plex Mono', monospace;
 .navbar {
     @apply mx-auto text-sm rounded-sm h-16 flex gap-0 z-10 px-10;
     @apply xl:w-full md:w-10/12 sm:w-full;
-
+    @apply fixed top-0 left-0 right-0;
 
     &__config {
         @apply w-3/12 flex gap-2;
@@ -42,7 +42,7 @@ $primary-font: 'IBM Plex Mono', monospace;
 
 
 .hard__skills {
-    @apply flex flex-col items-center justify-center w-full h-full;
+    @apply flex flex-col items-center justify-center w-full;
 
     ul {
         @apply flex flex-row mx-auto w-full items-center justify-center gap-20;
@@ -78,10 +78,10 @@ $primary-font: 'IBM Plex Mono', monospace;
 
 
 .soft__skills {
-    @apply flex flex-col items-center justify-center w-full h-full;
+    @apply flex flex-col items-center justify-center w-full;
 
     ul {
-        @apply flex flex-row mx-auto w-full items-center justify-center gap-16 h-full;
+        @apply flex flex-row mx-auto w-full items-center justify-center gap-16;
         // @apply lg:gap-14 md:gap-10 sm:gap-8 xl:w-8/12 md:w-10/12 sm:w-full;
 
         li {

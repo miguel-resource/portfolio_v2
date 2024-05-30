@@ -15,6 +15,7 @@ export default function Home() {
     'communication': translationSwiper('communication'),
     'teamwork': translationSwiper('teamwork'),
   };
+  const translationResume = useTranslations("resume");
 
   return (
     <div className={s.home}>
@@ -31,6 +32,13 @@ export default function Home() {
         description1={translateExperience('description1')}
         description2={translateExperience('description2')}
         description3={translateExperience('description3')}
+        comunication={translationSwiper('communication')}
+        initiative={translationSwiper('initiative')}
+        adaptability={translationSwiper('adaptability')}
+        teamwork={translationSwiper('teamwork')}
+        creativity={translationSwiper('creativity')}
+        criticalThinking={translationSwiper('criticalThinking')}
+        resume={translationResume('download')}
       />
 
     </div>

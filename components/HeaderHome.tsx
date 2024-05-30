@@ -50,10 +50,7 @@ const HeaderHome = (props: Props) => {
         {summary}
       </p>
       <Navbar me={props.me} experience={props.experience} resume={props.resume} />
-      
-      {/* <section className={s.home__info__swiper}>
-        <SwiperComponent translationSwiper={translationSwiperObject} />
-      </section> */}
+    
     </div>
   );
 };

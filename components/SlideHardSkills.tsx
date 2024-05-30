@@ -95,22 +95,20 @@ const SlideHardSkills = () => {
   }, []);
 
   return (
-    <div className={s.hard__skills}>
-      <ul>
-        {listHardSkills.map((item, index) => {
-          return (
-            <li key={index}>
-                <BootstrapTooltip title={item.details} placement="top">
-                  <div className="text-slate-800 dark:text-slate-300">
-                    <FontAwesomeIcon icon={item.icon} className={s.icon} />
-                    <p className={s.name}>{item.name}</p>
-                  </div>
-                </BootstrapTooltip>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <ul className={s.home__view__experience__container__hardSkills__container}>
+      {listHardSkills.map((item, index) => {
+        return (
+          <li key={index}>
+            <BootstrapTooltip title={item.details} placement="top">
+              <div className="text-slate-800 dark:text-slate-300">
+                <FontAwesomeIcon icon={item.icon} className={s.icon} />
+                <p className={s.name}>{item.name}</p>
+              </div>
+            </BootstrapTooltip>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 

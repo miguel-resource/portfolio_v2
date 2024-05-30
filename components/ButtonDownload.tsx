@@ -36,7 +36,7 @@ const ButtonDownload = (props: Props) => {
   } ,[]);
 
   return (
-    <div className={s.resume__container}>
+    <div className={s.resume__container} id="resume">
       <button
         className={`${s.resume__container__button} opacity-0 dark:text-slate-300 dark:bg-slate-900`}
         onClick={handleDownload}

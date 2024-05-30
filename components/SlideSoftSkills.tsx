@@ -3,12 +3,16 @@ import s from './components.module.scss';
 import { useTranslations } from 'next-intl';
 
 type Props = {
-  translationSoftSkills: any;
+  communication: string;
+  initiative: string;
+  adaptability: string;
+  teamwork: string;
+  creativity: string;
+  criticalThinking: string;
 };
 
 const SlideSoftSkills = (props: Props) => {
-  const { translationSoftSkills } = props;
-  const listSoftSkills = translationSoftSkills;
+  const listSoftSkills:any = props;
 
   return (
     <div className={s.soft__skills}>

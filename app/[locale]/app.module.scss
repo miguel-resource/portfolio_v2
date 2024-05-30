@@ -1,11 +1,12 @@
 .content {
-    @apply min-h-fit max-h-full flex-1 items-center justify-center flex;
+    @apply   items-center justify-center flex pb-20;
 
     .home {
-        @apply  grid grid-cols-2 gap-4 w-full px-44;
+        @apply  flex gap-2 px-16 py-32 pb-10 lg:px-32 justify-between;
 
         &__info {
-            // @apply flex flex-col px-10;
+            // @apply 
+            @apply lg:fixed w-full lg:max-h-screen justify-between;
 
             &__title {
                 @apply font-bold text-left;
@@ -18,7 +19,7 @@
             }
 
             &__navbar {
-                @apply flex flex-col w-full mt-32;
+                @apply flex flex-col w-full mt-32 gap-10;
 
 
                 &__link {
@@ -26,7 +27,7 @@
                     @apply flex items-center w-full cursor-pointer;
 
 
-                  p {
+                  a {
                     @apply items-center justify-start;
                     font-family: 'IBM Plex Mono', monospace;
                     font-size: 1rem;
@@ -48,7 +49,7 @@
                 }
 
                 &__link:hover {
-                    p {
+                    a {
                         span {
                             width: 4.9rem;
                         }
@@ -76,20 +77,46 @@
             //     }
             // }
         }
+
+        &__view {
+            // ponlo al final del div
+            @apply relative w-1/2 h-full;
+            @apply left-3/4 top-3/4 transform -translate-x-2/4 translate-y-1;
+            &__experience {
+
+                &__container {
+                    @apply w-fit mx-auto px-4;
+
+                   ul {
+                    @apply grid grid-cols-3 gap-16 mx-auto mb-20;
+
+                    li {
+                        @apply flex text-center flex-col items-center justify-center gap-4;
+
+                        svg {
+                            @apply w-12 h-12;
+                        }
+                    }
+                     
+                   }
+                }
+            }
+        }
     }
 
     .experience {
-        @apply py-12 mx-auto w-1/2;
-        @apply xl:w-1/2 lg:w-8/12 md:w-10/12 sm:w-11/12;
+        @apply mx-auto w-full;
+        overflow: auto;
+        // @apply lg:w-8/12 md:w-10/12 sm:w-11/12;
 
         &__container {
-            @apply max-w-5xl mx-auto px-4;
+            @apply mx-auto;
 
             &__boxes {
                 @apply flex flex-col gap-12;
 
                 &__item {
-                    @apply relative flex items-center;
+                    @apply  flex items-center;
 
                     &__point {
                         @apply relative z-10 flex-shrink-0 h-6 w-6 border-2 border-blue-400 rounded-full bg-gray-800;
@@ -97,7 +124,7 @@
                     }
 
                     &__card {
-                        @apply ml-5 p-4 rounded-lg shadow-md w-4/5 border-2 shadow-md;
+                        @apply ml-5 p-4 rounded-lg shadow-md w-11/12 border-2;
 
                         &__header {
                             @apply flex items-center justify-between mb-2;
@@ -142,15 +169,15 @@
         @apply flex items-center justify-center;
 
         &__container {
-            @apply mx-auto flex justify-center items-center;
+            @apply mt-32 mx-auto flex justify-center items-center;
 
             &__button {
-                @apply items-center justify-center rounded-lg w-full p-3 text-slate-500 font-semibold ease-in-out transition-all duration-300 border-2 border-slate-500;
+                @apply items-center justify-center rounded-lg w-full p-3 text-slate-900 font-semibold ease-in-out transition-all duration-300 border-2 border-slate-900;
                 font-family: 'IBM Plex Mono', monospace;
             }
 
             &__button:hover {
-                @apply underline shadow-inherit;
+                @apply shadow-inherit;
 
                 &__icon {
                     animation: alternate 0.5s ease-in-out infinite;
