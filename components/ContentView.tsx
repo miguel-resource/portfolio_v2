@@ -56,11 +56,11 @@ export const ContentView = (props: Props) => {
                         criticalThinking={criticalThinking}
                     />  
                     <JobItems
-                        title={title}
-                        subtitle={subtitle}
-                        description1={description1}
-                        description2={description2}
-                        description3={description3}
+                        translateExperience={{
+                            description1,
+                            description2,
+                            description3
+                        }}
                     />
                     <ProjectsSection
                         title={projectsTitle}

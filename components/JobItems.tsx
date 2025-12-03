@@ -7,11 +7,11 @@ import { Box, Modal } from "@mui/material";
 import ModalInfo from "./ModalInfo";
 
 type Props = {
-  title: string;
-  subtitle: string;
-  description1: string;
-  description2: string;
-  description3: string;
+  translateExperience: {
+    description1: string;
+    description2: string;
+    description3: string;
+  };
 };
 
 const style = {
@@ -26,7 +26,8 @@ const style = {
 
 
 const JobItems = (props: Props) => {
-  const { title, subtitle, description1, description2, description3 } = props;
+  const { translateExperience } = props;
+  const { description1, description2, description3 } = translateExperience;
   const [activeStackIndex, setActiveStackIndex] = useState(-1);
   const experience = [
     {
