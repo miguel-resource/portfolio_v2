@@ -1,3 +1,5 @@
+'use client';
+
 import s from "./../app.module.scss";
 import Button from "@mui/material/Button";
 import DowloadIcon from "@mui/icons-material/Download";

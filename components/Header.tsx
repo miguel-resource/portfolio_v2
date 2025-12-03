@@ -1,5 +1,7 @@
 "use client";
 import gsap from "gsap";
+import { useRouter, usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
 
 import LanguageIcon from "@mui/icons-material/Language";
 import {
@@ -13,12 +15,6 @@ import {
 } from "@mui/material";
 import s from "./components.module.scss";
 import { useEffect, useState } from "react";
-
-const links = [
-  { href: "/", label: "me" },
-  { href: "/experience", label: "experience" },
-  { href: "/resume", label: "resume" },
-];
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -45,8 +41,11 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
   },
   "& .MuiSwitch-thumb": {
-    // backgroundColor: localStorage.getItem("theme") === "dark" ? "#003892" : "#475569",
-    backgroundColor: typeof window !== 'undefined' && window.localStorage.getItem("theme") === "dark" ? "#003892" : "#475569",
+    backgroundColor:
+      typeof window !== "undefined" &&
+      window.localStorage.getItem("theme") === "dark"
+        ? "#003892"
+        : "#475569",
     width: 32,
     height: 32,
     "&:before": {
@@ -71,22 +70,29 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 interface Props {
-  me : string
-  experience : string
-  resume : string
+  me: string;
+  experience: string;
+  projects: string;
+  resume: string;
 }
 
 export const Header = (props: Props) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const currentLocale = useLocale();
+
   const [state, setState] = useState(
-    typeof window !== 'undefined' && window.localStorage.getItem("theme") === "dark" ? true : false
+    typeof window !== "undefined" &&
+      window.localStorage.getItem("theme") === "dark"
+      ? true
+      : false
   );
-  const [locale, setLocale] = useState(
-    // localStorage.getItem("locale") || "en"
-    typeof window !== 'undefined' && window.localStorage.getItem("locale") || "en"
-  );
+
+  const [mounted, setMounted] = useState(false);
   const prop: keyof Props = "me" || "experience" || "resume";
 
   useEffect(() => {
+    setMounted(true);
     const links = document.querySelectorAll("p");
     const dark = localStorage.getItem("theme") === "dark" ? true : false;
     if (dark) {
@@ -111,19 +117,13 @@ export const Header = (props: Props) => {
       setState(false);
       localStorage.setItem("theme", "light");
     }
-    localStorage.getItem("locale") === "es" ? setLocale("es") : setLocale("en");
-    const url = window.location.href;
-    const urlSplit = url.split("/");
-    if (urlSplit[3] === "es") {
-      setLocale("es");
-    } else {
-      setLocale("en");
-    }
   }, []);
 
-
   const switchHandler = () => {
-    if (localStorage.getItem("theme") === "dark" || !localStorage.getItem("theme")) {
+    if (
+      localStorage.getItem("theme") === "dark" ||
+      !localStorage.getItem("theme")
+    ) {
       localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
     } else {
@@ -134,23 +134,37 @@ export const Header = (props: Props) => {
   };
 
   const selectHandler = (event: SelectChangeEvent) => {
-    setLocale(event.target.value);
-    localStorage.setItem("locale", event.target.value);
-    const url = window.location.href;
-    const urlSplit = url.split("/");
+    const newLocale = event.target.value;
+    localStorage.setItem("locale", newLocale);
 
-    if (urlSplit[3] === "es" && event.target.value === "en" || event.target.value === "es" ) {
+    // Obtener el path actual sin el locale
+    const pathWithoutLocale = pathname.replace(`/${currentLocale}`, "") || "/";
 
-      if (urlSplit[4] !== undefined) {
-        window.location.href = `${urlSplit[0]}//${urlSplit[2]}/${event.target.value}/${urlSplit[4]}`;
-      } else {
-        if (urlSplit[3] === "es") {
-          window.location.href = `${urlSplit[0]}//${urlSplit[2]}/${event.target.value}`;
-        } else {
-          window.location.href = `${urlSplit[0]}//${urlSplit[2]}/${event.target.value}/${urlSplit[3]}`;
-        }
-      }
-    }
+    // Navegar a la nueva ruta con el nuevo locale
+    router.push(`/${newLocale}${pathWithoutLocale}`);
+  };
+
+  // No renderizar el select hasta que esté montado en el cliente
+  if (!mounted) {
+    return (
+      <nav className={s.navbar}>
+        <div className={s.navbar__config}>
+          <FormGroup className={s.form}>
+            <FormControlLabel
+              control={
+                <MaterialUISwitch onChange={switchHandler} checked={state} />
+              }
+              label=""
+            />
+            <div className={s.language}>
+              <LanguageIcon className="text-slate-800 dark:text-slate-300" />
+              <div style={{ width: "80px", height: "24px" }} />{" "}
+              {/* Placeholder */}
+            </div>
+          </FormGroup>
+        </div>
+      </nav>
+    );
   }
 
   return (
@@ -158,10 +172,8 @@ export const Header = (props: Props) => {
       <div className={s.navbar__config}>
         <FormGroup className={s.form}>
           <FormControlLabel
-            control={<MaterialUISwitch 
-              onChange={switchHandler} 
-              checked={state}
-              />
+            control={
+              <MaterialUISwitch onChange={switchHandler} checked={state} />
             }
             label=""
           />
@@ -170,9 +182,13 @@ export const Header = (props: Props) => {
             <Select
               variant="standard"
               color="primary"
-              value={locale}
+              value={currentLocale}
               className="text-slate-800 dark:text-slate-400 dark:font-semibold"
-              style={{fontFamily: "IBM Plex Mono", fontSize: "0.75rem", fontWeight: 500}}
+              style={{
+                fontFamily: "IBM Plex Mono",
+                fontSize: "0.75rem",
+                fontWeight: 500,
+              }}
               onChange={selectHandler}
             >
               <MenuItem value="en">English</MenuItem>

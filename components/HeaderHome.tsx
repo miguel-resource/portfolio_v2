@@ -1,40 +1,43 @@
-"use client"
+"use client";
 import { useEffect } from "react";
 import s from "./../app/[locale]/app.module.scss";
 import ModelThree from "./ModelThree";
-import SwiperComponent from './SwiperComponent';
-import Title from './Title';
+import SwiperComponent from "./SwiperComponent";
+import Title from "./Title";
 import gsap from "gsap";
 import { Navbar } from "./Navbar";
 
 type Props = {
-    summary : string;
-    me: string;
-    experience: string;
-    resume: string;
-    translationSwiperObject: any;
+  summary: string;
+  me: string;
+  experience: string;
+  projects: string;
+  resume: string;
+  translationSwiperObject: any;
 };
 
 const HeaderHome = (props: Props) => {
-    const { summary, translationSwiperObject } = props;
+  const { summary, translationSwiperObject } = props;
 
-    useEffect(() => {
-        const selectTitle = document.querySelector(`.${s.home__info__title}`);
-        const selectDescription = document.querySelector(`.${s.home__info__description}`);
+  useEffect(() => {
+    const selectTitle = document.querySelector(`.${s.home__info__title}`);
+    const selectDescription = document.querySelector(
+      `.${s.home__info__description}`
+    );
 
-        gsap.from(selectTitle, {
-            duration: 1,
-            opacity: 0,
-            y: 100,
-            ease: "power3.out",
-        });
-        gsap.from(selectDescription, {
-            duration: 1,
-            opacity: 0,
-            y: 100,
-            ease: "power3.out",
-        });
-    }, []);
+    gsap.from(selectTitle, {
+      duration: 1,
+      opacity: 0,
+      y: 100,
+      ease: "power3.out",
+    });
+    gsap.from(selectDescription, {
+      duration: 1,
+      opacity: 0,
+      y: 100,
+      ease: "power3.out",
+    });
+  }, []);
 
   return (
     <div className={s.home__info}>
@@ -49,8 +52,12 @@ const HeaderHome = (props: Props) => {
       >
         {summary}
       </p>
-      <Navbar me={props.me} experience={props.experience} resume={props.resume} />
-    
+      <Navbar
+        me={props.me}
+        experience={props.experience}
+        projects={props.projects}
+        resume={props.resume}
+      />
     </div>
   );
 };

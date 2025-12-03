@@ -100,7 +100,7 @@ const SlideHardSkills = () => {
         return (
           <li key={index}>
             <BootstrapTooltip title={item.details} placement="top">
-              <div className="text-slate-800 dark:text-slate-300">
+              <div className="text-slate-900 dark:text-slate-100">
                 <FontAwesomeIcon icon={item.icon} className={s.icon} />
                 <p className={s.name}>{item.name}</p>
               </div>

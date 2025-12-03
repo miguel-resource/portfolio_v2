@@ -17,7 +17,7 @@ $primary-font: 'IBM Plex Mono', monospace;
 }
 
 .navbar {
-    @apply mx-auto text-sm rounded-sm h-16 flex gap-0 z-10 px-10;
+    @apply mx-auto text-sm rounded-sm h-16 flex gap-0 z-10 px-10 mb-4;
     @apply xl:w-full md:w-10/12 sm:w-full;
     @apply fixed top-0 left-0 right-0;
 
@@ -49,30 +49,44 @@ $primary-font: 'IBM Plex Mono', monospace;
         // @apply lg:gap-14 md:gap-10;
 
         li {
-            @apply justify-center items-center flex flex-col gap-4 duration-150 transform opacity-0 ease-out;
+            @apply justify-center items-center flex flex-col gap-4 transform;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            padding: 12px;
+            border-radius: 16px;
+            background: transparent;
 
             .icon {
                 @apply text-center w-12 h-12;
+                transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
                 // @apply lg:w-8 md:w-6;
             }
 
             .name {
                 @apply text-center text-xs mt-1;
-                // @apply md:hidden;
+                transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                font-weight: 600;
                 font-family: $primary-font;
+                // @apply md:hidden;
             }
         }
 
         li:hover {
-            @apply scale-125 cursor-pointer;
+            transform: translateY(-4px) scale(1.05);
+            cursor: pointer;
+            background: rgba(59, 130, 246, 0.05);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
 
             .icon {
-                @apply duration-150 ease-out -translate-y-1;
+                filter: brightness(1.2);
+                transform: scale(1.1);
             }
 
+            .name {
+                font-weight: 700;
+                letter-spacing: 0.3px;
+            }
         }
-
-
     }
 }
 
@@ -85,13 +99,49 @@ $primary-font: 'IBM Plex Mono', monospace;
         // @apply lg:gap-14 md:gap-10 sm:gap-8 xl:w-8/12 md:w-10/12 sm:w-full;
 
         li {
-            @apply justify-center items-center flex flex-row gap-4 duration-150 text-center;
-            @apply h-12;
+            @apply justify-center items-center flex flex-row gap-4 text-center h-12;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: transparent;
+
+            p {
+                display: block;
+                width: 100%;
+                text-align: center;
+                align-self: center;
+                line-height: 1.2;
+                transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                font-weight: 600;
+                opacity: 1 !important;
+                margin: 0;
+                padding: 0;
+                transform: none !important;
+                animation: none !important;
+            }
         }
 
         li:hover {
-            @apply scale-125 cursor-default;
-            animation: rebound 0.3s ease-in-out;
+            cursor: default;
+            transform: translateY(-3px) scale(1.03);
+            background: rgba(59, 130, 246, 0.06);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+
+            p {
+                font-weight: 700;
+                letter-spacing: 0.3px;
+                color: #1e3a8a !important; // azul fuerte para modo claro
+            }
+        }
+
+        // Color blanco para modo oscuro
+        @media (prefers-color-scheme: dark) {
+            li:hover {
+                p {
+                    color: #ffffff !important; // blanco para modo oscuro
+                }
+            }
         }
     }
 }
@@ -111,5 +161,356 @@ $primary-font: 'IBM Plex Mono', monospace;
 
     100% {
         transform: translateY(0);
+    }
+}
+
+.projects__section {
+    @apply w-full py-16 px-4;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+
+    .projects__container {
+        @apply mx-auto;
+        max-width: 50rem;
+
+        .projects__title {
+            @apply text-3xl font-bold mb-3 text-center;
+            font-family: $primary-font;
+            letter-spacing: -0.02em;
+        }
+
+        .projects__subtitle {
+            @apply text-base mb-10 text-center;
+            font-family: $primary-font;
+            font-weight: 300;
+        }
+
+        .projects__grid {
+            @apply grid grid-cols-1 gap-6;
+            @apply md:grid-cols-2 lg:grid-cols-3;
+            width: 100%;
+            display: grid;
+
+            .projects__card {
+                @apply rounded-xl overflow-hidden;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                border: 1px solid rgba(148, 163, 184, 0.15);
+                background: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(10px);
+                position: relative;
+
+                &:hover {
+                    transform: translateY(-8px) scale(1.02);
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                    border-color: rgba(148, 163, 184, 0.3);
+
+                    .projects__card__image {
+                        .projects__card__img {
+                            transform: scale(1.1);
+                        }
+
+                        .projects__card__overlay {
+                            opacity: 0.4;
+                        }
+                    }
+
+                    .projects__card__link {
+                        transform: translateY(-2px);
+                        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+                        .projects__card__arrow {
+                            transform: translateX(4px);
+                        }
+                    }
+                }
+
+                .projects__card__image {
+                    @apply relative w-full overflow-hidden;
+                    height: 180px;
+                    background: linear-gradient(135deg, rgba(148, 163, 184, 0.1) 0%, rgba(100, 116, 139, 0.1) 100%);
+
+                    .projects__card__img {
+                        @apply w-full h-full object-cover;
+                        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                        opacity: 0.9;
+                    }
+
+                    .projects__card__overlay {
+                        @apply absolute inset-0;
+                        background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+                        opacity: 0;
+                        transition: opacity 0.4s ease;
+                    }
+                }
+
+                .projects__card__content {
+                    @apply p-5;
+                }
+
+                .projects__card__title {
+                    @apply text-xl font-bold mb-3;
+                    font-family: $primary-font;
+                }
+
+                .projects__card__description {
+                    @apply mb-4 text-xs leading-relaxed;
+                    font-family: $primary-font;
+                    min-height: 70px;
+                    line-height: 1.6;
+                    opacity: 0.9;
+                }
+
+                .projects__card__technologies {
+                    @apply flex flex-wrap gap-2 mb-4;
+
+                    .projects__card__tech {
+                        @apply px-3 py-1 text-xs rounded-full;
+                        font-family: $primary-font;
+                        font-weight: 600;
+                        transition: all 0.3s ease;
+                        background: rgba(148, 163, 184, 0.1);
+                        border: 1px solid rgba(148, 163, 184, 0.2);
+
+                        &:hover {
+                            transform: translateY(-2px) scale(1.05);
+                            background: rgba(148, 163, 184, 0.2);
+                            box-shadow: 0 2px 8px rgba(148, 163, 184, 0.2);
+                        }
+                    }
+                }
+
+                .projects__card__link {
+                    @apply inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-lg font-semibold text-sm;
+                    font-family: $primary-font;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    text-decoration: none;
+
+                    .projects__card__arrow {
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover {
+                        .projects__card__arrow {
+                            animation: arrowBounce 0.6s ease infinite;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Dark mode adjustments
+    @media (prefers-color-scheme: dark) {
+        .projects__container {
+            .projects__grid {
+                .projects__card {
+                    background: rgba(30, 41, 59, 0.5);
+                    border-color: rgba(148, 163, 184, 0.1);
+
+                    &:hover {
+                        border-color: rgba(148, 163, 184, 0.2);
+                        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                    }
+
+                    .projects__card__image {
+                        background: linear-gradient(135deg, rgba(71, 85, 105, 0.2) 0%, rgba(51, 65, 85, 0.2) 100%);
+                    }
+
+                    .projects__card__technologies {
+                        .projects__card__tech {
+                            background: rgba(148, 163, 184, 0.15);
+                            border-color: rgba(148, 163, 184, 0.2);
+
+                            &:hover {
+                                background: rgba(148, 163, 184, 0.25);
+                                box-shadow: 0 2px 8px rgba(148, 163, 184, 0.3);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes arrowBounce {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(6px);
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 1024px) {
+    .projects__section {
+        .projects__container {
+            .projects__grid {
+                @apply gap-4;
+                grid-template-columns: repeat(2, 1fr);
+
+                .projects__card {
+                    .projects__card__image {
+                        height: 160px;
+                    }
+
+                    .projects__card__content {
+                        @apply p-4;
+                    }
+
+                    .projects__card__title {
+                        @apply text-lg mb-2;
+                    }
+
+                    .projects__card__description {
+                        @apply text-xs mb-3;
+                        min-height: 60px;
+                    }
+
+                    .projects__card__technologies {
+                        @apply gap-1.5 mb-3;
+
+                        .projects__card__tech {
+                            @apply px-2 py-0.5 text-xs;
+                        }
+                    }
+
+                    .projects__card__link {
+                        @apply px-4 py-2 text-xs;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .projects__section {
+        @apply py-10 px-3;
+        margin-top: 1rem;
+
+        .projects__container {
+            max-width: 100%;
+            width: 100%;
+
+            .projects__title {
+                @apply text-2xl mb-2;
+            }
+
+            .projects__subtitle {
+                @apply text-sm mb-6;
+            }
+
+            .projects__grid {
+                @apply gap-4;
+                grid-template-columns: 1fr;
+                display: grid;
+
+                .projects__card {
+                    &:hover {
+                        transform: translateY(-4px) scale(1.01);
+                    }
+
+                    .projects__card__image {
+                        height: 200px;
+                    }
+
+                    .projects__card__content {
+                        @apply p-4;
+                    }
+
+                    .projects__card__title {
+                        @apply text-lg mb-2;
+                    }
+
+                    .projects__card__description {
+                        @apply text-xs mb-3;
+                        min-height: auto;
+                        line-height: 1.5;
+                    }
+
+                    .projects__card__technologies {
+                        @apply gap-1.5 mb-3;
+
+                        .projects__card__tech {
+                            @apply px-2.5 py-1 text-xs;
+                        }
+                    }
+
+                    .projects__card__link {
+                        @apply px-4 py-2 text-xs w-full justify-center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .projects__section {
+        @apply py-8 px-2;
+
+        .projects__container {
+            width: 100%;
+
+            .projects__title {
+                @apply text-xl mb-2;
+            }
+
+            .projects__subtitle {
+                @apply text-xs mb-4;
+            }
+
+            .projects__grid {
+                @apply gap-3;
+                grid-template-columns: 1fr;
+                display: grid;
+
+                .projects__card {
+                    .projects__card__image {
+                        height: 160px;
+                    }
+
+                    .projects__card__content {
+                        @apply p-3;
+                    }
+
+                    .projects__card__title {
+                        @apply text-base mb-2;
+                    }
+
+                    .projects__card__description {
+                        @apply text-xs mb-2;
+                        line-height: 1.4;
+                    }
+
+                    .projects__card__technologies {
+                        @apply gap-1 mb-2;
+
+                        .projects__card__tech {
+                            @apply px-2 py-0.5;
+                            font-size: 10px;
+                        }
+                    }
+
+                    .projects__card__link {
+                        @apply px-3 py-1.5;
+                        font-size: 11px;
+
+                        span {
+                            display: inline;
+                        }
+
+                        .projects__card__arrow {
+                            width: 12px;
+                            height: 12px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

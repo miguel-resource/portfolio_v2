@@ -4,12 +4,14 @@ import s from "@/app/[locale]/app.module.scss";
 const links = [
     { href: "/", label: "me" },
     { href: "/experience", label: "experience" },
+    { href: "/projects", label: "projects" },
     { href: "/resume", label: "resume" },
 ];
 
 type NavbarProps = {
     me: string;
     experience: string;
+    projects: string;
     resume: string;
 };
 
@@ -30,7 +32,7 @@ export const Navbar = (props: NavbarProps) => {
                             className={`
                             bg-slate-900 dark:bg-slate-300
                             dark:text-gray-300`}></span>
-                        {label === "me" ? props.me : label === "experience" ? props.experience : props.resume}
+                        {label === "me" ? props.me : label === "experience" ? props.experience : label === "projects" ? props.projects : props.resume}
                     </a>
                 </li>
             ))}

@@ -9,7 +9,7 @@
             @apply lg:fixed w-full lg:max-h-screen justify-between;
 
             &__title {
-                @apply font-bold text-left;
+                @apply font-bold text-left mt-5;
                 @apply xl:text-4xl sm:text-3xl;
             }
 
@@ -59,7 +59,7 @@
             }
 
             p {
-                @apply text-left block w-10/12 mt-10;
+                @apply text-left block w-5/12 mt-10;
                 @apply font-medium;
                 // font-family: monospace;
             }
@@ -184,6 +184,134 @@
                 }
             }
 
+        }
+    }
+}
+
+// Responsive adjustments for home layout
+@media (max-width: 1024px) {
+    .content {
+        .home {
+            @apply flex-col px-8 py-16;
+
+            &__info {
+                @apply relative w-full;
+            }
+
+            &__view {
+                @apply relative w-full left-0 top-0 transform-none;
+                @apply mt-10;
+
+                &__experience {
+                    &__container {
+                        @apply w-full px-2;
+
+                        ul {
+                            @apply grid-cols-2 gap-8 mb-10;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        .home {
+            @apply px-4 py-12;
+
+            &__info {
+                &__navbar {
+                    @apply mt-16 gap-6;
+                }
+
+                p {
+                    @apply w-full;
+                }
+            }
+
+            &__view {
+                @apply mt-8;
+
+                &__experience {
+                    &__container {
+                        @apply px-0;
+
+                        ul {
+                            @apply grid-cols-1 gap-6;
+                        }
+                    }
+                }
+            }
+        }
+
+        .experience {
+            @apply w-full px-4;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        .home {
+            @apply px-2 py-8;
+
+            &__info {
+                &__title {
+                    @apply text-2xl;
+                }
+
+                &__navbar {
+                    @apply mt-12 gap-4;
+                }
+            }
+
+            &__view {
+                &__experience {
+                    &__container {
+                        ul {
+                            @apply gap-4 mb-6;
+
+                            li {
+                                svg {
+                                    @apply w-10 h-10;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .experience {
+            @apply px-2;
+
+            &__container {
+                &__boxes {
+                    @apply gap-8;
+
+                    &__item {
+                        &__card {
+                            @apply p-3 w-full ml-3;
+
+                            &__header {
+                                @apply flex-col items-start;
+
+                                &__title {
+                                    @apply text-base;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .resume {
+            &__container {
+                @apply mt-16;
+            }
         }
     }
 }

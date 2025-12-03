@@ -1,11 +1,12 @@
 {
     "home": {
-        "summary": "Software personalizado. Resultados poderosos. Experiencia fluida."
+        "summary": "Desarrollador Full-Stack apasionado. Creando experiencias digitales excepcionales con tecnologías modernas."
     },
     "navbar": {
         "me": "Yo",
         "experience": "Experiencia",
-        "resume": "Currículum"
+        "resume": "Currículum",
+        "projects": "Proyectos"
     },
     "swiper": {
         "communication": "Comunicación",
@@ -19,8 +20,17 @@
         "download": "Descargar CV"
     },
     "experience": {
+        "title": "Experiencia",
+        "subtitle": "Experiencia Laboral",
         "description1" : "En Ezaudita Startup, me especialicé en el desarrollo backend, enfocándome en las funciones Lambda y la configuración de instancias EC2 dentro de AWS. Utilicé CloudWatch para el diagnóstico de errores, asegurando un rendimiento óptimo del sistema. Integré Stripe para pagos seguros y mejoré la sección de suscripciones para aumentar la satisfacción del cliente. Contribuí activamente al equipo de desarrollo utilizando la metodología Scrum, entregando elementos exitosos.",
         "description2" : "Creando diseños amigables para el usuario para nuevas características. Colaboré con el equipo de backend para comunicarse con el servidor y mostrar información relevante a los clientes. Implementé funcionalidades para un acceso sencillo y la gestión de datos de proveedores y servicios. Probé y solucioné problemas de manera activa para asegurar una experiencia de usuario fluida.",
         "description3" : "Durante mi trabajo como freelance, me especialicé en crear diseños utilizando Figma y traducirlos a código. Inicié y completé proyectos personales y familiares, perfeccionando mis habilidades en el control de versiones Git, gestionando ramas, CSS y aprovechando varios trucos con Tailwind CSS. Mis tareas involucraron el diseño de diseños, la integración de API y el desarrollo web adaptable."
+    },
+    "projects": {
+        "title": "Proyectos Freelance",
+        "subtitle": "Mis Proyectos",
+        "projectName": "Nombre del Proyecto",
+        "projectDescription": "Descripción",
+        "projectLink": "Ver Proyecto"
     }
 }

@@ -3,6 +3,7 @@ import s from "@/app/[locale]/app.module.scss";
 import JobItems from "./JobItems";
 import SwiperComponent from "./SwiperComponent";
 import ButtonDownload from "./ButtonDownload";
+import ProjectsSection from "./ProjectsSection";
 
 type Props = {
     title: string;
@@ -17,6 +18,8 @@ type Props = {
     creativity: string;
     criticalThinking: string;
     resume: string;
+    projectsTitle: string;
+    projectsSubtitle: string;
 };
 
 export const ContentView = (props: Props) => {
@@ -33,7 +36,9 @@ export const ContentView = (props: Props) => {
         teamwork,
         creativity,
         criticalThinking,
-        resume
+        resume,
+        projectsTitle,
+        projectsSubtitle
     } = props;
 
 
@@ -56,6 +61,10 @@ export const ContentView = (props: Props) => {
                         description1={description1}
                         description2={description2}
                         description3={description3}
+                    />
+                    <ProjectsSection
+                        title={projectsTitle}
+                        subtitle={projectsSubtitle}
                     />
                     <ButtonDownload download={resume}/>
                 </div>

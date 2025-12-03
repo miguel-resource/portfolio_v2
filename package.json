@@ -2,6 +2,9 @@
   "name": "portfolio_v2",
   "version": "0.1.0",
   "private": true,
+  "resolutions": {
+    "use-intl": "2.22.1"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -29,23 +32,24 @@
     "gsap": "^3.12.2",
     "i18next": "^23.4.4",
     "next": "13.4.12",
-    "next-intl": "3.0.0-beta.10",
+    "next-intl": "2.22.1",
     "particle.js": "^1.0.7",
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-i18next": "^13.1.2",
-    "react-particles": "^2.12.2",
+    "use-intl": "2.22.1",
     "react-simple-typewriter": "^5.0.1",
     "swiper": "^10.1.0",
     "tailwindcss": "3.3.3",
     "three": "^0.155.0",
-    "tsparticles-slim": "^2.12.0",
     "typescript": "5.1.6",
     "typewriter-effect": "^2.20.1"
   },
   "devDependencies": {
     "@types/three": "^0.155.0",
+    "postcss-nesting": "^13.0.2",
     "sass": "^1.64.2"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

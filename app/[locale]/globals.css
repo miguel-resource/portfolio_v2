@@ -24,16 +24,17 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
 
-    .swiper {
-      height: 7.5rem !important;
-    }
+.swiper {
+  height: 7.5rem !important;
+}
 
-  .swiper-button-prev, .swiper-button-next {
-    @apply text-blue-800;
-  }
+.swiper-button-prev,
+.swiper-button-next {
+  @apply text-blue-800;
+}
 
-  .swiper-pagination-bullet {
-    @apply bg-slate-700;
-  }
+.swiper-pagination-bullet {
+  @apply bg-slate-700;
 }
